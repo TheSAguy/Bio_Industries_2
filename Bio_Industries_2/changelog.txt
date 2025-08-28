@@ -1,0 +1,35 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: 27.08.2025
+  Bug Fixes:
+    - Fixed Wood Underground pipe graphic
+    - Fixed Wood Underground pipe graphic
+    - Fixed Dart Turret ammo
+  Changes:
+    - Updated Rail Recipe.
+    - Added Wooden Rail
+    - Updated some graphics. BIG thnkas to Snouz!
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+Date: 28.07.2025
+  Bug Fixes:
+    - Fix Bio Boiler
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 13.07.2025
+  Bug Fixes:
+    - Fix several entities
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 07.07.2025
+  Bug Fixes:
+    - Fix compatibility with Krastorio2
+  Changes:
+    - Add compatibility with Space Age
+    - Add compatibility with Krastorio2 Spaced Out
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 06.07.2025
+  Bug Fixes:
+    - Fix locales
+    - Fix Musk floor
