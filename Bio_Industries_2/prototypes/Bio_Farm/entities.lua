@@ -332,16 +332,32 @@ data:extend({
         allowed_effects = { "consumption", "speed", "pollution" },
         graphics_set = {
             animation = {
-                filename = "__Bio_Industries_2__/graphics/entities/cokery/cokery_sheet.png",
-                frame_count = 28,
-                line_length = 7,
-                width = 256,
-                height = 256,
-                scale = 0.5,
-                shift = { 0.5, -0.5 },
-                animation_speed = 0.1
-            },
-        },
+			
+            filename = "__Bio_Industries_2__/graphics/entities/cokery/hr_cokery_anim.png",	
+			priority="high",
+            width = 256,
+            height = 256,
+            frame_count = 16,
+            line_length = 8,
+            shift = { 0.5, -0.5 },
+            animation_speed = 0.1,
+			scale = 0.5,
+			
+			},
+			
+			shadow = 
+					{
+				filename = "__Bio_Industries_2__/graphics/entities/biogarden/hr_cokery_shadow.png",
+				frame_count = 1,
+				direction_count = 1,
+				width = 334,
+				height = 126,
+				scale = 0.5,
+				draw_as_shadow = true,
+				shift = { 1.5, -0.5 },
+			},	
+			
+		},
         crafting_categories = { "biofarm-mod-smelting" },
         energy_source = {
             type = "electric",
