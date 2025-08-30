@@ -65,13 +65,26 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
     impact_category = "wood",
     picture = {
+	layers = {
+	{
       filename = WOODPATH .. "large_wooden_chest.png",
       priority = "extra-high",
-      width = 184,
-      height = 132,
-      shift = {0.5, 0},
+      width = 128,
+      height = 128,
+      shift = {0, 0},
       scale = 0.5,
     },
+	{
+      filename = WOODPATH .. "large_wooden_chest_shadow.png",
+      priority = "extra-high",
+      width = 128,
+      height = 128,
+      shift = {1, 0},
+	  draw_as_shadow = true,
+      scale = 0.5,
+    },
+	},	
+	},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance
@@ -107,13 +120,26 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
         impact_category = "wood",
     picture = {
+	layers = {
+	{
       filename = WOODPATH .. "huge_wooden_chest.png",
       priority = "extra-high",
-      width = 184,
-      height = 132,
-      shift = {0.5, 0},
-      scale = 0.75,
+      width = 224,
+      height = 224,
+      shift = {0, 0},
+      scale = 0.5,
     },
+	{
+      filename = WOODPATH .. "huge_wooden_chest_shadow.png",
+      priority = "extra-high",
+      width = 224,
+      height = 224,
+      shift = {1, 0},
+	  draw_as_shadow = true,
+      scale = 0.5,
+    },	
+	},
+	},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance
@@ -149,13 +175,26 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
         impact_category = "wood",
     picture = {
+	layers = {
+	{
       filename = WOODPATH .. "giga_wooden_chest.png",
       priority = "extra-high",
-      width = 501,
-      height = 366,
-      shift = {0.88, -0.170},
+      width = 384,
+      height = 448,
+      shift = {0, -0.5},
       scale = 0.5,
     },
+	{
+      filename = WOODPATH .. "giga_wooden_chest_shadow.png",
+      priority = "extra-high",
+      width = 192,
+      height = 384,
+      shift = {1, -0.5},
+	  draw_as_shadow = true,
+      scale = 0.5,
+    },	
+	},
+	},
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance

@@ -2,6 +2,7 @@ local BioInd = require('common')('Bio_Industries_2')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
+local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
 
 require("util")
 
@@ -37,32 +38,23 @@ data:extend({
             },
         },
         fluid_boxes_off_when_no_fluid_recipe = true,
-        graphics_set = {
-            animation = {
-
-				
-                filename = "__Bio_Industries_2__/graphics/entities/biogarden/hr_bio_garden_anim_trees.png",
-                width = 256,
-                height = 320,
-                frame_count = 20,
-                line_length = 5,
-                animation_speed = 0.025,
-				scale = 0.5,
-                shift = { 0, -0.5 }
-            
-			},
-			shadow = 
-						{
-				filename = "__Bio_Industries_2__/graphics/entities/biogarden/hr_bio_garden_shadow.png",
-				frame_count = 1,
-				direction_count = 1,
-				width = 384,
-				height = 320,
-				draw_as_shadow = true,
-				scale = 0.5,
-				shift = { 0.5, -0.5 }
-			},
-        
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = ENTITYPATH_BIO .. "bio_garden/bio_garden_anim_trees.png",
+						width = 256, height = 320,
+						frame_count = 20, line_length = 5,
+						animation_speed = 0.025, scale = 0.5, shift = {0, -0.75}
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_garden/bio_garden_shadow.png",
+						width = 384, height = 320,
+						frame_count = 1, repeat_count = 20,    -- repeat to match
+						draw_as_shadow = true, scale = 0.5, shift = {1, -0.75}
+					}
+				}
+			}
 		},
         open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
         close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },

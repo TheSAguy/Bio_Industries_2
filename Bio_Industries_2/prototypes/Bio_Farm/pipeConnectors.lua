@@ -1,6 +1,7 @@
 local BioInd = require('common')('Bio_Industries_2')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
+local ENTITYPATH_BIO = "__Bio_Industries_2__/graphics/entities/"
 
 
 function assembler2pipepicturesCokery()
@@ -190,28 +191,28 @@ function BioFarm_Pipe_Connectors_Left()
   return
   {
     north = {
-        filename = "__Bio_Industries_2__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_l.png",
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/Bio_Farm-pipe-N_l.png",
         priority = "extra-high",
         width = 51,
         height = 35,
         shift = {0.25, 1},
     },
     east = {
-        filename = "__Bio_Industries_2__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_l.png",
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/Bio_Farm-pipe-E_l.png",
         priority = "extra-high",
         width = 18,
         height = 48,
         shift = {-1, -0.25},
     },
     south = {
-        filename = "__Bio_Industries_2__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_l.png",
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/Bio_Farm-pipe-S_l.png",
         priority = "extra-high",
         width = 49,
         height = 25,
         shift = {0.5, -1},
     },
     west = {
-        filename = "__Bio_Industries_2__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_l.png",
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/Bio_Farm-pipe-W_l.png",
         priority = "extra-high",
         width = 16,
         height = 51,

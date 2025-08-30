@@ -3,6 +3,7 @@ local BioInd = require('common')('Bio_Industries_2')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ENTITYPATH = "__base__/graphics/entity/boiler/"
+local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
 
 
 require("util")
@@ -14,7 +15,7 @@ bio_boiler_tint = { r = 0.5, g = 0.5, b = 0.1, a = 0.7 }
 -- unlock the bio-reactor and the most basic recipe for algae biomass even if
 -- BI.Settings.BI_Bio_Fuel has been turned off!
 data:extend({
-    -- BIOREACTOR
+    -- BIO_REACTOR
     {
         type = "assembling-machine",
         name = "bi-bio-reactor",
@@ -79,17 +80,59 @@ data:extend({
         collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
         selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
         graphics_set = {
-            animation = {
-                filename = "__Bio_Industries_2__/graphics/entities/bioreactor/bioreactor.png",
-                priority = "high",
-                width = 128,
-                height = 150,
-                frame_count = 26,
-                line_length = 13,
-                animation_speed = 0.4,
-                shift = { 0.55, -0.33 }
-            },
-        },
+		-- Idle animation (1 frame)
+		idle_animation = {
+			layers = {
+				{
+					filename = ENTITYPATH_BIO .. "bio_reactor/bioreactor_idle.png",
+					priority = "high",
+					width = 182,
+					height = 256,
+					frame_count = 1,
+					repeat_count = 18, -- match working animation
+					shift = { 0, -0.5 },
+					scale = 0.5
+				},
+				{
+					filename = ENTITYPATH_BIO .. "bio_reactor/bioreactor_shadow.png",
+					width = 270,
+					height = 256,
+					frame_count = 1,
+					repeat_count = 18, -- match working animation
+					draw_as_shadow = true,
+					shift = { 0.5, -0.5 },
+					scale = 0.5
+				}
+			}
+		},
+
+		-- Working animation (16 frames)
+		animation = {
+			layers = {
+				{
+					filename = ENTITYPATH_BIO .. "bio_reactor/bioreactor_anim.png",
+					priority = "high",
+					width = 182,
+					height = 256,
+					frame_count = 18,
+					line_length = 6,
+					animation_speed = 0.4,
+					shift = { 0, 0.25 },
+					scale = 0.5
+				},
+				{
+					filename = ENTITYPATH_BIO .. "bio_reactor/bioreactor_anim.png",
+					width = 182,
+					height = 256,
+					frame_count = 1,
+					repeat_count = 18, -- match working animation
+					draw_as_shadow = true,
+					shift = { 0.5, 0.25 },
+					scale = 0.5
+				}
+			}
+		}
+	},
         energy_source = {
             type = "electric",
             usage_priority = "secondary-input"
@@ -199,13 +242,13 @@ if BI.Settings.BI_Bio_Fuel then
                     structure = {
                         layers = {
                             {
-                                filename = ENTITYPATH .. "boiler-N-idle.png",
+                                filename = ENTITYPATH_BIO .. "bio_boiler/boiler-N-idle.png",
                                 priority = "extra-high",
                                 width = 269,
                                 height = 221,
                                 shift = util.by_pixel(-1.25, 5.25),
                                 scale = 0.5,
-                                tint = bio_boiler_tint,
+                                --tint = bio_boiler_tint,
                             },
                             {
                                 filename = ENTITYPATH .. "boiler-N-shadow.png",
@@ -223,13 +266,13 @@ if BI.Settings.BI_Bio_Fuel then
                     structure = {
                         layers = {
                             {
-                                filename = ENTITYPATH .. "boiler-E-idle.png",
+                                filename = ENTITYPATH_BIO .. "bio_boiler/boiler-E-idle.png",
                                 priority = "extra-high",
                                 width = 216,
                                 height = 301,
                                 shift = util.by_pixel(-3, 1.25),
                                 scale = 0.5,
-                                tint = bio_boiler_tint,
+                                --tint = bio_boiler_tint,
                             },
                             {
                                 filename = ENTITYPATH .. "boiler-E-shadow.png",
@@ -247,13 +290,13 @@ if BI.Settings.BI_Bio_Fuel then
                     structure = {
                         layers = {
                             {
-                                filename = ENTITYPATH .. "boiler-S-idle.png",
+                                filename = ENTITYPATH_BIO .. "bio_boiler/boiler-S-idle.png",
                                 priority = "extra-high",
                                 width = 260,
                                 height = 192,
                                 shift = util.by_pixel(4, 13),
                                 scale = 0.5,
-                                tint = bio_boiler_tint,
+                                --tint = bio_boiler_tint,
                             },
                             {
                                 filename = ENTITYPATH .. "boiler-S-shadow.png",
@@ -271,13 +314,13 @@ if BI.Settings.BI_Bio_Fuel then
                     structure = {
                         layers = {
                             {
-                                filename = ENTITYPATH .. "boiler-W-idle.png",
+                                filename = ENTITYPATH_BIO .. "bio_boiler/boiler-W-idle.png",
                                 priority = "extra-high",
                                 width = 196,
                                 height = 273,
                                 shift = util.by_pixel(1.5, 7.75),
                                 scale = 0.5,
-                                tint = bio_boiler_tint,
+                                --tint = bio_boiler_tint,
                             },
                             {
                                 filename = ENTITYPATH .. "boiler-W-shadow.png",

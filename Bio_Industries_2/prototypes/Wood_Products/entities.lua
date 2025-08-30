@@ -192,42 +192,41 @@ data:extend({
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
     collision_mask = { layers = { ground_tile = true } },
     walking_speed_modifier = 1.2,
-    layer = 62,
+    layer = 13,
     decorative_removal_probability = 1,
     variants = {
       transition = tile_graphics.generic_masked_tile_transitions1,
       main = {
         {
-          picture = WOODPATH .. "wood_floor/wood1.png",
+          picture = WOODPATH .. "wood_floor/woodfloor.png",
           count = 4,
-          size = 1
-        },
-        {
-          picture = WOODPATH .. "wood_floor/wood2.png",
-          count = 1,
-          size = 2,
-          probability = 1,
+          size = 1,
+		  scale = 0.5
         },
       },
       inner_corner = {
-        picture = WOODPATH .. "wood_floor/wood-inner-corner.png",
-        count = 8
+        picture = WOODPATH .. "wood_floor/woodfloor_inner-corner.png",
+        count = 4
       },
       outer_corner = {
-        picture = WOODPATH .. "wood_floor/wood-outer-corner.png",
-        count = 8
+        picture = WOODPATH .. "wood_floor/woodfloor_outer-corner.png",
+        count = 4,
+		scale = 0.5
       },
       side = {
-        picture = WOODPATH .. "wood_floor/wood-side.png",
-        count = 8
+        picture = WOODPATH .. "wood_floor/woodfloor_side.png",
+        count = 4,
+		scale = 0.5
       },
       u_transition = {
-        picture = WOODPATH .. "wood_floor/wood-u.png",
-        count = 8
+        picture = WOODPATH .. "wood_floor/woodfloor_u.png",
+        count = 4,
+		scale = 0.5
       },
       o_transition = {
-        picture = WOODPATH .. "wood_floor/wood-o.png",
-        count = 1
+        picture = WOODPATH .. "wood_floor/hr_woodfloor_o.png",
+        count = 1,
+		scale = 0.5
       }
     },
     walking_sound = sounds.walking_sound,

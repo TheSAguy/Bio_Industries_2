@@ -1,6 +1,7 @@
 local BioInd = require('common')('Bio_Industries_2')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_W = BioInd.modRoot .. "/graphics/icons/weapons/"
+local ENTITYPATH_BIO = "__Bio_Industries_2__/graphics/entities/"
 
 data:extend({
   --- Basic Dart
@@ -207,7 +208,7 @@ return
 {
   layers = {
     {
-      filename = "__Bio_Industries_2__/graphics/entities/bio_turret/bio_turret.png",
+      filename = ENTITYPATH_BIO .. "bio_turret/bio_turret.png",
       priority = "medium",
       scale = 0.5,
       width = 224,

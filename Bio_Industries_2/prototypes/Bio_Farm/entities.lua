@@ -2,20 +2,20 @@ local BioInd = require('common')('Bio_Industries_2')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
-local ENTITYPATH = BioInd.modRoot .. "/graphics/entities/biofarm/"
+local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
 
 require("prototypes.Bio_Farm.pipeConnectors")
 require("util")
 
 
 inv_extension2 = {
-    filename = ENTITYPATH .. "Bio_Farm_Idle_alt.png",
+    filename = ENTITYPATH_BIO .. "bio_terraformer/arboretum.png",
     priority = "high",
-    width = 320,
-    height = 320,
-    frame_count = 1,
-    direction_count = 1,
-    shift = { 0.75, 0 },
+	width = 640,
+	height = 640,
+	frame_count = 1,
+	scale = 0.5,
+	shift = { 0, 0 }
 }
 
 
@@ -184,26 +184,44 @@ data:extend({
         collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
         selection_box = { { -4.5, -4.5 }, { 4.5, 4.5 } },
 
-        graphics_set = {
-            animation = {
-                filename = ENTITYPATH .. "Bio_Farm_Idle.png",
-                priority = "high",
-                width = 348,
-                height = 288,
-                shift = { 0.96, 0 },
-                frame_count = 1,
-            },
-            working_visualisations = { {
-                animation = {
-                    filename = ENTITYPATH .. "Bio_Farm_Working.png",
-                    priority = "high",
-                    width = 348,
-                    height = 288,
-                    shift = { 0.96, 0 },
-                    frame_count = 1,
-                },
-            } }
-        },
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = ENTITYPATH_BIO .. "bio_farm/bio_farm.png",
+						priority = "high",
+						width = 608,
+						height = 800,
+						frame_count = 1,
+						scale = 0.5,
+						shift = { 0, -2.0 }
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_farm/bio_farm_shadow.png",
+						priority = "high",
+						width = 800,
+						height = 800,
+						frame_count = 1,
+						scale = 0.5,
+						draw_as_shadow = true,
+						shift = { 1, -2.0 }
+					}
+				}
+			},
+			working_visualisations = {
+				{
+					light = { intensity = 1.2, size = 9 },
+					animation = {
+						filename = ENTITYPATH_BIO .. "bio_farm/bio_farm_light.png",
+						priority = "high",
+						width = 800,
+						height = 800,
+						frame_count = 1,
+						shift = { 1, -2 }
+					}
+				}
+			}
+		},
 
         crafting_categories = { "biofarm-mod-farm" },
         crafting_speed = 1,
@@ -276,31 +294,43 @@ data:extend({
         },
         module_specification = {module_slots = 2},
         allowed_effects = { "consumption", "speed", "productivity", "pollution" },
-
-        graphics_set = {
-            animation = {
-                filename = ENTITYPATH .. "bio_greenhouse_off.png",
-                width = 113,
-                height = 93,
-                frame_count = 1,
-                scale = 1,
-                shift = { 0.3, 0 }
-            },
-            working_visualisations = {
-                {
-                    light = { intensity = 1, size = 6 },
-                    animation = {
-                        filename = ENTITYPATH .. "bio_greenhouse_on.png",
-                        width = 113,
-                        height = 93,
-                        frame_count = 1,
-                        scale = 1,
-                        shift = { 0.3, 0 }
-                    }
-                }
-            },
-        },
-
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = ENTITYPATH_BIO .. "bio_greenhouse/bio_greenhouse.png",
+						width = 192,
+						height = 256,
+						frame_count = 1,
+						scale = 0.5,
+						shift = { 0, -0.5 }
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_greenhouse/bio_greenhouse_shadow.png",
+						width = 256,
+						height = 128,
+						frame_count = 1,
+						scale = 0.5,
+						draw_as_shadow = true,
+						shift = { 1, -0.5 }
+					}
+				}
+			},
+			working_visualisations = {
+				{
+					light = { intensity = 1, size = 6 },
+					animation = {
+						filename = ENTITYPATH_BIO .. "bio_greenhouse/bio_greenhouse_light_anim.png",
+						width = 192,
+						height = 256,
+						frame_count = 10,
+						scale = 0.5,
+						animation_speed = 0.1,
+						shift = { 0, 0.5 }
+					}
+				}
+			}
+		},
         open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
         close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 }
     },
@@ -330,33 +360,60 @@ data:extend({
         selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
         module_specification = { module_slots = 2 },
         allowed_effects = { "consumption", "speed", "pollution" },
-        graphics_set = {
-            animation = {
-			
-            filename = "__Bio_Industries_2__/graphics/entities/cokery/hr_cokery_anim.png",	
-			priority="high",
-            width = 256,
-            height = 256,
-            frame_count = 16,
-            line_length = 8,
-            shift = { 0.5, -0.5 },
-            animation_speed = 0.1,
-			scale = 0.5,
-			
-			},
-			
-			shadow = 
+		graphics_set = {
+			-- Idle animation (1 frame)
+			--[[
+			idle_animation = {
+				layers = {
 					{
-				filename = "__Bio_Industries_2__/graphics/entities/biogarden/hr_cokery_shadow.png",
-				frame_count = 1,
-				direction_count = 1,
-				width = 334,
-				height = 126,
-				scale = 0.5,
-				draw_as_shadow = true,
-				shift = { 1.5, -0.5 },
-			},	
-			
+						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_idle.png",
+						priority = "high",
+						width = 256,
+						height = 256,
+						frame_count = 1,
+						repeat_count = 16, -- match working animation
+						shift = { 0.5, -0.5 },
+						scale = 0.5
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_shadow.png",
+						width = 334,
+						height = 126,
+						frame_count = 1,
+						repeat_count = 16, -- match working animation
+						draw_as_shadow = true,
+						shift = { 1.5, -0.5 },
+						scale = 0.5
+					}
+				}
+			},
+		]]
+			-- Working animation (16 frames)
+			animation = {
+				layers = {
+					{
+						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_anim.png",
+						priority = "high",
+						width = 256,
+						height = 256,
+						frame_count = 16,
+						line_length = 8,
+						animation_speed = 0.1,
+						shift = { 0.5, -0.5 },
+						scale = 0.5
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_shadow.png",
+						width = 334,
+						height = 126,
+						frame_count = 1,
+						repeat_count = 16, -- match working animation
+						draw_as_shadow = true,
+						shift = { 1.5, -0.5 },
+						scale = 0.5
+					}
+				}
+			}
 		},
         crafting_categories = { "biofarm-mod-smelting" },
         energy_source = {
@@ -394,26 +451,32 @@ data:extend({
         },
         collision_box = { { -0.8, -0.8 }, { 0.8, 0.8 } },
         selection_box = { { -1.0, -1.0 }, { 1.0, 1.0 } },
-        graphics_set = {
-            animation = {
-                filename = "__Bio_Industries_2__/graphics/entities/stone-crusher/stone_crusher_anim.png",
-                priority = "high",
-                width = 65,
-                height = 78,
-                frame_count = 11,
-                animation_speed = 0.5,
-                shift = { 0.0, -0.1 }
-            },
-            working_visualisations = { {
-                filename = "__Bio_Industries_2__/graphics/entities/stone-crusher/stone-crusher-anim.png",
-                priority = "high",
-                width = 65,
-                height = 78,
-                frame_count = 11,
-                animation_speed = 0.18 / 2.5,
-                shift = { 0.0, -0.1 }
-            } },
-        },
+		graphics_set = {
+			animation = {
+				filename = ENTITYPATH_BIO .. "bio_stone_crusher/stone_crusher_off.png",
+				priority = "high",
+				width = 130,
+				height = 156,
+				frame_count = 1,
+				scale = 0.5,
+				shift = { 0.0, -0.1 }
+			},
+			working_visualisations = {
+				{
+					animation = {
+						filename = ENTITYPATH_BIO .. "bio_stone_crusher/stone_crusher_anim.png",
+						priority = "high",
+						width = 130,
+						height = 156,
+						frame_count = 20,
+						line_length = 10,                
+						animation_speed = 0.2,
+						scale = 0.5,
+						shift = { 0.0, -0.1 }
+					}
+				}
+			},
+		},
         crafting_categories = { "biofarm-mod-crushing" },
         result_inventory_size = 1,
         source_inventory_size = 1,
@@ -821,28 +884,42 @@ data:extend({
         collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
         selection_box = { { -4.5, -4.5 }, { 4.5, 4.5 } },
         order = "x[bi]-a[bi-arboretum]",
-
-        graphics_set = {
-            animation = {
-                filename = ENTITYPATH .. "Bio_Farm_Idle_alt.png",
-                priority = "low",
-                width = 320,
-                height = 320,
-                frame_count = 1,
-                shift = { 0.75, 0 },
-            },
-            working_visualisations = { {
-                animation = {
-                    filename = ENTITYPATH .. "Bio_Farm_Working_alt.png",
-                    priority = "low",
-                    width = 320,
-                    height = 320,
-                    frame_count = 1,
-                    shift = { 0.75, 0 },
-                },
-            } },
-        },
-
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = ENTITYPATH_BIO .. "bio_terraformer/arboretum.png",
+						width = 640,
+						height = 640,
+						frame_count = 1,
+						scale = 0.5,
+						shift = { 0, 0 }
+					},
+					{
+						filename = ENTITYPATH_BIO .. "bio_terraformer/arboretum_shadow.png",
+						width = 560,
+						height = 640,
+						frame_count = 1,
+						scale = 0.5,
+						draw_as_shadow = true,
+						shift = { 1.5, 0 }
+					}
+				}
+			},
+			working_visualisations = {
+				{
+					light = { intensity = 1, size = 8 },
+					animation = {
+						filename = ENTITYPATH_BIO .. "bio_terraformer/arboretum_light.png",
+						width = 560,
+						height = 640,
+						frame_count = 1,
+						scale = 0.5,
+						sshift = { 0.75, 1 }
+					}
+				}
+			}
+		},
         crafting_categories = { "bi-arboretum" },
         crafting_speed = 0.000000000001,
         energy_source = {

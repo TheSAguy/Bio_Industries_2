@@ -20,6 +20,10 @@ require("control_tree")
 require("control_arboretum")
 
 
+---************** Used for Testing -----
+--require ("Test_Spawn")
+---*************
+
 
 local function Create_dummy_force()
     -- Create dummy force for musk floor if electric grid overlay should NOT be shown in map view
