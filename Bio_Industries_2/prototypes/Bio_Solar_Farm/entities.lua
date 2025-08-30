@@ -351,7 +351,9 @@ function big_accumulator_picture(tint, repeat_count)
             collision_mask = { layers = { ground_tile = true } },
             --collision_box = { { -0.5, -0.5 }, { 0.5, 0.5 } },
             walking_speed_modifier = 1.45,
-			layer = 13,
+			layer = 13,			
+			layer_group = "ground-artificial",
+			transition_overlay_layer_offset = 2,
             decorative_removal_probability = 1,
             variants = {
                 transition = tile_graphics.generic_masked_tile_transitions1,

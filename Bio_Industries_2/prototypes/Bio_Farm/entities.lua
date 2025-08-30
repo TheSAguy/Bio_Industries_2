@@ -211,6 +211,9 @@ data:extend({
 			working_visualisations = {
 				{
 					light = { intensity = 1.2, size = 9 },
+					effect = "flicker",
+					constant_speed = true,
+					fadeout = true,
 					animation = {
 						filename = ENTITYPATH_BIO .. "bio_farm/bio_farm_light.png",
 						priority = "high",

@@ -187,6 +187,14 @@ data:extend({
       },
       {
         type = "unlock-recipe",
+        recipe = "bi-bio-garden-lagre"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "bi-bio-garden-huge"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "bi-purified-air-1"
       },
       {

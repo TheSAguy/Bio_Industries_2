@@ -30,14 +30,77 @@ data:extend({
     results = {{type="item", name="bi-bio-garden", amount=1}},
     main_product = "",
     subgroup = "bio-bio-gardens-fluid",
-    order = "a[bi]",
-                    allow_as_intermediate = false,      -- Changed for 0.18.34/1.1.4
+    order = "a[bi-garden-1]",
+    allow_as_intermediate = false,      -- Changed for 0.18.34/1.1.4
     always_show_made_in = false,        -- Changed for 0.18.34/1.1.4
     allow_decomposition = true,         -- Changed for 0.18.34/1.1.4    -- This is a custom property for use by "Krastorio 2" (it will change
     -- ingredients/results; used for wood/wood pulp)
     mod = "Bio_Industries_2",
   },
 
+  --- Garden - Large(ENTITY)
+  {
+    type = "recipe",
+    name = "bi-bio-garden-lagre",
+    localised_name = {"entity-name.bi-bio-garden-lagre"},
+    localised_description = {"entity-description.bi-bio-garden-lagre"},
+    icon = ICONPATH_E .. "bio_garden_large_icon.png",
+    icon_size = 64,
+    icons = {
+      {
+        icon = ICONPATH_E .. "bio_garden_large_icon.png",
+        icon_size = 64,
+      }
+    },
+    enabled = false,
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="stone-wall", amount=48},
+      {type="item", name="stone-crushed", amount=200},
+      {type="item", name="bi-bio-garden", amount=4}
+    },
+    results = {{type="item", name="bi-bio-garden-large", amount=1}},
+    main_product = "",
+    subgroup = "bio-bio-gardens-fluid",
+    order = "a[bi-garden-2]",
+    allow_as_intermediate = false,      -- Changed for 0.18.34/1.1.4
+    always_show_made_in = false,        -- Changed for 0.18.34/1.1.4
+    allow_decomposition = true,         -- Changed for 0.18.34/1.1.4    -- This is a custom property for use by "Krastorio 2" (it will change
+    -- ingredients/results; used for wood/wood pulp)
+    mod = "Bio_Industries_2",
+  },
+
+  --- Garden - Huge(ENTITY)
+  {
+    type = "recipe",
+    name = "bi-bio-garden-huge",
+    localised_name = {"entity-name.bi-bio-garden-huge"},
+    localised_description = {"entity-description.bi-bio-garden-huge"},
+    icon = ICONPATH_E .. "bio_garden_huge_icon.png",
+    icon_size = 64,
+    icons = {
+      {
+        icon = ICONPATH_E .. "bio_garden_huge_icon.png",
+        icon_size = 64,
+      }
+    },
+    enabled = false,
+    energy_required = 15,
+    ingredients = {
+      {type="item", name="stone-wall", amount=192},
+      {type="item", name="stone-crushed", amount=800},
+      {type="item", name="bi-bio-garden-large", amount=4}
+    },
+    results = {{type="item", name="bi-bio-garden-huge", amount=1}},
+    main_product = "",
+    subgroup = "bio-bio-gardens-fluid",
+    order = "a[bi-garden-3]",
+    allow_as_intermediate = false,      -- Changed for 0.18.34/1.1.4
+    always_show_made_in = false,        -- Changed for 0.18.34/1.1.4
+    allow_decomposition = true,         -- Changed for 0.18.34/1.1.4    -- This is a custom property for use by "Krastorio 2" (it will change
+    -- ingredients/results; used for wood/wood pulp)
+    mod = "Bio_Industries_2",
+  },
 
   --- Clean Air 1
   {

@@ -24,6 +24,40 @@ data:extend({
     stack_size = 10
   },
 
+    {
+    type = "item",
+    name = "bi-bio-garden-large",
+    icon = ICONPATH_E .. "bio_garden_large_icon.png",
+    icon_size = 64,
+    icons = {
+        {
+            icon = ICONPATH_E .. "bio_garden_large_icon.png",
+            icon_size = 64,
+        }
+    },
+    subgroup = "production-machine",
+    order = "x[bi]-c[bi-bio-garden]",
+    place_result = "bi-bio-garden-large",
+    stack_size = 10
+  },
+
+    {
+    type = "item",
+    name = "bi-bio-garden-huge",
+    icon = ICONPATH_E .. "bio_garden_huge_icon.png",
+    icon_size = 64,
+    icons = {
+        {
+            icon = ICONPATH_E .. "bio_garden_huge_icon.png",
+            icon_size = 64,
+        }
+    },
+    subgroup = "production-machine",
+    order = "x[bi]-d[bi-bio-garden]",
+    place_result = "bi-bio-garden-huge",
+    stack_size = 10
+  },
+  
   {
     type = "item",
     name = "bi-purified-air",
