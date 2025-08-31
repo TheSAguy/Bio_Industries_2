@@ -460,11 +460,15 @@ local function On_Built(event)
         elseif entity.type == "electric-pole" then
             local pole = entity
             -- Make sure hidden poles of the Bio gardens are connected correctly!
-            if pole.name == entities["bi-bio-garden"].hidden[h_key].name and base then
-                BioInd.writeDebug("Bio garden!")
-                BioInd.connect_garden_pole(base, pole)
-                BioInd.writeDebug("Connected %s (%s)", { pole.name, pole.unit_number or "nil" })
-            end
+			local garden_names = { "bi-bio-garden", "bi-bio-garden-larger", "bi-bio-garden-huge" }
+			for _, gname in ipairs(garden_names) do
+			  if entities[gname] and pole.name == entities[gname].hidden[h_key].name and base then
+				BioInd.writeDebug("Bio garden (" .. gname .. ")!")
+				BioInd.connect_garden_pole(base, pole)
+				BioInd.writeDebug("Connected %s (%s)", { pole.name, pole.unit_number or "nil" })
+				break
+			  end
+			end
 
             -- A seedling has been planted
         elseif entity.name == "seedling" then
