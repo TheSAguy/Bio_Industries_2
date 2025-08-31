@@ -42,12 +42,21 @@ end
 -- Check that all ingredients are available!
 local function check_ingredients(arboretum)
     local recipe = arboretum.get_recipe()
-    local need = recipe and storage.bi_arboretum_recipe_table[recipe.name]
+    if not recipe then
+        --game.print("No recipe set on arboretum")
+        return nil
+    end
+    --game.print("Recipe name: " .. recipe.name)
+    local need = storage.bi_arboretum_recipe_table[recipe.name]
+    if not need then
+        --game.print("No recipe data found for " .. recipe.name)
+        return nil
+    end
 
     local function check(need, have)
         for name, amount in pairs(need or {}) do
             if not (have and have[name]) or (have[name] < amount) then
-                BioInd.writeDebug("Missing ingredient %s (have %s of %s)", { name, have[name] or 0, amount })
+                --game.print("Missing ingredient " .. name .. " (have " .. (have[name] or 0) .. " of " .. amount .. ")")
                 return false
             end
         end
@@ -55,9 +64,38 @@ local function check_ingredients(arboretum)
     end
 
     local inventory = arboretum.get_inventory(defines.inventory.assembling_machine_input)
+    local inv_contents_raw = inventory and inventory.get_contents() or {}
+
+    -- Check if inv_contents_raw is a map or list, convert if needed
+    local function is_map(t)
+        if type(t) ~= "table" then return false end
+        for k, v in pairs(t) do
+            if type(k) ~= "string" or type(v) ~= "number" then
+                return false
+            end
+        end
+        return true
+    end
+
+    local inv_contents
+    if is_map(inv_contents_raw) then
+        inv_contents = inv_contents_raw
+    else
+        -- Convert list of item stacks to map
+        inv_contents = {}
+        for _, item in pairs(inv_contents_raw) do
+            inv_contents[item.name] = (inv_contents[item.name] or 0) + item.count
+        end
+    end
+
+    local fluid_contents = arboretum.get_fluid_contents() or {}
+
+    --game.print("Inventory contents (map): " .. serpent.line(inv_contents))
+    --game.print("Fluid contents: " .. serpent.line(fluid_contents))
+
     return need and
-        check(need.items, inventory and inventory.get_contents()) and
-        check(need.fluids, arboretum.get_fluid_contents()) and
+        check(need.items, inv_contents) and
+        check(need.fluids, fluid_contents) and
         { ingredients = need, name = recipe.name } or nil
 end
 
@@ -111,10 +149,14 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
     local check = check_ingredients(arboretum)
     local ingredients, recipe_name
     if check then
+	--game.print("There are ingredients")
         ingredients, recipe_name = check.ingredients, check.name
+	else
+	--game.print("No ingredients")
     end
 
     if ingredients then
+	
         local create_seedling, new_plant
         pos = BioInd.normalize_position(arboretum.position) or
             BioInd.arg_err("nil", "position")
