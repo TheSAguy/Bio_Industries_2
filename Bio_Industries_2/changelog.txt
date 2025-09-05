@@ -1,14 +1,44 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.5
-Date: 27.08.2025
+Version: 2.0.11
+Date: 04.09.2025
   Bug Fixes:
-    - Fixed Wood Underground pipe graphic
-    - Fixed Wood Underground pipe graphic
-    - Fixed Dart Turret ammo
+    - Fixed (I hope) Wood Rail
+---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 02.09.2025
+  Bug Fixes:
+    - Fix working visualisations for Bio Nursery
+---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: 02.09.2025
+  Bug Fixes:
+    - Fix working visualisations for Bio Farm
+---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: 31.08.2025
+  Bug Fixes:
+    - Fix icon path
+---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 31.08.2025
+  Bug Fixes:
+    - Fix file names
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 31.08.2025
+  Bug Fixes:
+    - Add missing subgroups (put icons in correct tab)
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: 31.08.2025
+  Bug Fixes:
+    - Fixed Wood Underground pipe graphic (TheSAguy)
+    - Fixed Prototype Artillery (TheSAguy)
+    - Fixed Dart Turret ammo (TheSAguy)
   Changes:
-    - Updated Rail Recipe.
-    - Added Wooden Rail
-    - Updated some graphics. BIG thnkas to Snouz!
+    - Updated Vanilla Rail Recipe (TheSAguy)
+    - Added Wooden Rail (TheSAguy)
+    - Updated some graphics (TheSAguy; BIG thanks to Snouz!)
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.4
 Date: 28.07.2025

@@ -4,8 +4,8 @@ require("util")
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
-local ENTITYPATH_BIO = "__Bio_Industries_2__/graphics/entities/"
-
+local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
+local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
 
 
@@ -17,39 +17,39 @@ if BI.Settings.BI_Solar_Additions then
             filename = "__base__/sound/walking/concrete-" .. i .. ".ogg",
             volume = 1.2
         }
-end
+	end
 
 
-function big_accumulator_picture(tint, repeat_count)
-    return
-    {
-      layers =
-      {
-        {
-            filename = ENTITYPATH_BIO .. "bio_accumulator/bi_large_accumulator.png",
-            priority = "extra-high",
-            width = 307,
-            height = 362,
-            scale = 0.5,
-            repeat_count = repeat_count,
-            tint = tint,
-            shift = {0, -0.6},
-        },
-        {
-            filename = ENTITYPATH_BIO .. "bio_accumulator/bi_large_accumulator_shadow.png",
-            priority = "extra-high",
-            width = 384,
-            height = 272,
-            repeat_count = repeat_count,
-            shift = {1, 0},
-            scale = 0.5,
-            draw_as_shadow = true,
-        }
-      }
-    }
-  end
-  
-  function big_accumulator_charge()
+	function big_accumulator_picture(tint, repeat_count)
+		return
+		{
+		  layers =
+		  {
+			{
+				filename = ENTITYPATH_BIO .. "bio_accumulator/bi_large_accumulator.png",
+				priority = "extra-high",
+				width = 307,
+				height = 362,
+				scale = 0.5,
+				repeat_count = repeat_count,
+				tint = tint,
+				shift = {0, -0.6},
+			},
+			{
+				filename = ENTITYPATH_BIO .. "bio_accumulator/bi_large_accumulator_shadow.png",
+				priority = "extra-high",
+				width = 384,
+				height = 272,
+				repeat_count = repeat_count,
+				shift = {1, 0},
+				scale = 0.5,
+				draw_as_shadow = true,
+			}
+		  }
+		}
+	  end
+	  
+	function big_accumulator_charge()
     return
     {
       layers =
@@ -132,7 +132,7 @@ function big_accumulator_picture(tint, repeat_count)
             flags = { "placeable-neutral", "player-creation" },
             minable = { hardness = 0.25, mining_time = 0.5, result = "bi-bio-solar-farm" },
             max_health = 600,
-            corpse = "big-remnants",
+            corpse = "bi-bio-solar-farm-remnant",
             dying_explosion = "medium-explosion",
             resistances = { { type = "fire", percent = 80 } },
             collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
@@ -166,7 +166,40 @@ function big_accumulator_picture(tint, repeat_count)
 			},
             production = "3600kW"
         },
-
+		
+		---- corpse
+	{
+	  type = "corpse",
+	  name = "bi-bio-solar-farm-remnant",
+	  localised_name = {"entity-name.bi-bio-solar-farm-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+	  tile_width = 9,
+	  tile_height = 9,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "bio_solar_farm_remnant.png",
+		  line_length = 1,
+		  width = 624,
+		  height = 578,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0.3, 0},
+		  scale = 0.5
+		}
+	  }
+	},
 
         ---- BI Accumulator
 {
@@ -185,7 +218,7 @@ function big_accumulator_picture(tint, repeat_count)
     flags = { "placeable-neutral", "player-creation" },
     minable = { hardness = 0.2, mining_time = 0.5, result = "bi-bio-accumulator" },
     max_health = 500,
-    corpse = "big-remnants",
+    corpse = "bi-bio-accumulator-remnant",
     collision_box = { { -1.75, -1.75 }, { 1.75, 1.75 } },
     selection_box = { { -2, -2 }, { 2, 2 } },
 
@@ -239,7 +272,42 @@ function big_accumulator_picture(tint, repeat_count)
 
     default_output_signal = {type = "virtual", name = "signal-A"},
     weight = 200 * kg
-},
+	},
+	
+	--- corpse
+	
+		{
+		  type = "corpse",
+		  name = "bi-bio-accumulator-remnant",
+		  localised_name = {"entity-name.bi-bio-accumulator-remnant"},
+		  icon = "__base__/graphics/icons/remnants.png",
+		  icon_size = 64,
+		  icon_mipmaps = 4,
+		  BI_add_icon = true,
+		  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+		  subgroup = "remnants",
+		  order = "z-z-z",
+		  selection_box = {{-2, -2}, {2, 2}},
+		  tile_width = 4,
+		  tile_height = 4,
+		  selectable_in_game = false,
+		  time_before_removed = 60 * 60 * 15, -- 15 minutes
+		  final_render_layer = "remnants",
+		  remove_on_tile_placement = false,
+		  animation =
+		  {
+			{
+			  filename = REMNANTSPATH .. "bi_large_accumulator_remnant.png",
+			  line_length = 1,
+			  width = 307,
+			  height = 362,
+			  frame_count = 1,
+			  direction_count = 1,
+			  shift = {0, -0.6},
+			  scale = 0.5
+			}
+		  }
+		},
 
 
         ---- Large Substation
@@ -262,7 +330,7 @@ function big_accumulator_picture(tint, repeat_count)
             flags = { "placeable-neutral", "player-creation" },
             minable = { hardness = 0.2, mining_time = 0.5, result = "bi-large-substation" },
             max_health = 600,
-            corpse = "big-remnants",
+            corpse = "bi-large-substation-remnant",
             dying_explosion = "big-explosion",
             track_coverage_during_build_by_moving = true,
             resistances = {
@@ -329,6 +397,40 @@ function big_accumulator_picture(tint, repeat_count)
                 priority = "extra-high-no-scale"
             },
         },
+		
+		--- corpse	
+		{
+		  type = "corpse",
+		  name = "bi-large-substation-remnant",
+		  localised_name = {"entity-name.bi-large-substation-remnant"},
+		  icon = "__base__/graphics/icons/remnants.png",
+		  icon_size = 64,
+		  icon_mipmaps = 4,
+		  BI_add_icon = true,
+		  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+		  subgroup = "remnants",
+		  order = "z-z-z",
+		  selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+		  tile_width = 5,
+		  tile_height = 5,
+		  selectable_in_game = false,
+		  time_before_removed = 60 * 60 * 15, -- 15 minutes
+		  final_render_layer = "remnants",
+		  remove_on_tile_placement = false,
+		  animation =
+		  {
+			{
+			  filename = REMNANTSPATH .. "large_substation_remnant.png",
+			  line_length = 1,
+			  width = 384,
+			  height = 384,
+			  frame_count = 1,
+			  direction_count = 1,
+			  shift = {0,0},
+			  scale = 0.5
+			}
+		  }
+		},
 
 
         ---- Solar Floor / Musk Floor
@@ -429,192 +531,227 @@ function big_accumulator_picture(tint, repeat_count)
         },
     })
 
-    data:extend({
+ data:extend({
         ------- Boiler for Solar Plant / Boiler
-{
-    type = "boiler",
-    name = "bi-solar-boiler",
-    icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png",
-    icon_size = 64,
-    icons = {
-        { icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png", icon_size = 64 }
-    },
-    se_allow_in_space = true,
-    flags = { "placeable-neutral", "player-creation" },
-    minable = { hardness = 0.2, mining_time = 1, result = "bi-solar-boiler" },
-    max_health = 400,
-    corpse = "small-remnants",
-    vehicle_impact_sound = sounds.generic_impact,
-    mode = "output-to-separate-pipe",
-    resistances = {
-        { type = "fire", percent = 100 },
-        { type = "explosion", percent = 30 },
-        { type = "impact", percent = 30 }
-    },
-    collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
-    selection_box = { { -4.5, -4.5 }, { 4.5, 4.5 } },
-    target_temperature = 235,
-    fluid_box = {
-        volume = 200,
-        base_level = -1,
-        pipe_covers = pipecoverspictures(),
-        pipe_connections = {
-            { flow_direction = "input-output", direction = defines.direction.east, position = { 4, 0 } },
-            { flow_direction = "input-output", direction = defines.direction.west, position = { -4, 0 } }
-        },
-        production_type = "input-output",
-        filter = "water"
-    },
-    output_fluid_box = {
-        volume = 200,
-        base_level = 1,
-        pipe_covers = pipecoverspictures(),
-        pipe_connections = {
-            { flow_direction = "input-output", direction = defines.direction.south, position = { 0, 4 } },
-            { flow_direction = "input-output", direction = defines.direction.north, position = { 0, -4 } }
-        },
-        production_type = "output",
-        filter = "steam"
-    },
-    energy_consumption = "1.799MW",
-    energy_source = {
-        type = "electric",
-        usage_priority = "primary-input",
-        emissions_per_minute = { pollution = -1 }, -- Negative value: pollution is absorbed!
-    },
-    working_sound = {
-        sound = { filename = "__base__/sound/boiler.ogg", volume = 0.9 },
-        max_sounds_per_type = 3
-    },
-    pictures = {
-        north = {
-            structure = {
-                layers = {
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5
-                    },
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5,
-                        draw_as_shadow = true
-                    }
-                }
-            },
-            fire_glow = {
-                filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
-                priority = "extra-high",
-                frame_count = 1,
-                width = 576,
-                height = 576,
-                scale = 0.5,
-                blend_mode = "additive"
-            }
-        },
+	{
+		type = "boiler",
+		name = "bi-solar-boiler",
+		icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png",
+		icon_size = 64,
+		icons = {
+			{ icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png", icon_size = 64 }
+		},
+		se_allow_in_space = true,
+		flags = { "placeable-neutral", "player-creation" },
+		minable = { hardness = 0.2, mining_time = 1, result = "bi-solar-boiler" },
+		max_health = 400,
+		corpse = "bi-solar-boiler-remnant",
+		vehicle_impact_sound = sounds.generic_impact,
+		mode = "output-to-separate-pipe",
+		resistances = {
+			{ type = "fire", percent = 100 },
+			{ type = "explosion", percent = 30 },
+			{ type = "impact", percent = 30 }
+		},
+		collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
+		selection_box = { { -4.5, -4.5 }, { 4.5, 4.5 } },
+		target_temperature = 235,
+		fluid_box = {
+			volume = 200,
+			base_level = -1,
+			pipe_covers = pipecoverspictures(),
+			pipe_connections = {
+				{ flow_direction = "input-output", direction = defines.direction.east, position = { 4, 0 } },
+				{ flow_direction = "input-output", direction = defines.direction.west, position = { -4, 0 } }
+			},
+			production_type = "input-output",
+			filter = "water"
+		},
+		output_fluid_box = {
+			volume = 200,
+			base_level = 1,
+			pipe_covers = pipecoverspictures(),
+			pipe_connections = {
+				{ flow_direction = "input-output", direction = defines.direction.south, position = { 0, 4 } },
+				{ flow_direction = "input-output", direction = defines.direction.north, position = { 0, -4 } }
+			},
+			production_type = "output",
+			filter = "steam"
+		},
+		energy_consumption = "1.799MW",
+		energy_source = {
+			type = "electric",
+			usage_priority = "primary-input",
+			emissions_per_minute = { pollution = -1 }, -- Negative value: pollution is absorbed!
+		},
+		working_sound = {
+			sound = { filename = "__base__/sound/boiler.ogg", volume = 0.9 },
+			max_sounds_per_type = 3
+		},
+		pictures = {
+			north = {
+				structure = {
+					layers = {
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5
+						},
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5,
+							draw_as_shadow = true
+						}
+					}
+				},
+				fire_glow = {
+					filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
+					priority = "extra-high",
+					frame_count = 1,
+					width = 576,
+					height = 576,
+					scale = 0.5,
+					blend_mode = "additive"
+				}
+			},
 
-        east = {
-            structure = {
-                layers = {
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5
-                    },
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5,
-                        draw_as_shadow = true
-                    }
-                }
-            },
-            fire_glow = {
-                filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
-                priority = "extra-high",
-                frame_count = 1,
-                width = 576,
-                height = 576,
-                scale = 0.5,
-                blend_mode = "additive"
-            }
-        },
+			east = {
+				structure = {
+					layers = {
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5
+						},
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5,
+							draw_as_shadow = true
+						}
+					}
+				},
+				fire_glow = {
+					filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
+					priority = "extra-high",
+					frame_count = 1,
+					width = 576,
+					height = 576,
+					scale = 0.5,
+					blend_mode = "additive"
+				}
+			},
 
-        south = {
-            structure = {
-                layers = {
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5
-                    },
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5,
-                        draw_as_shadow = true
-                    }
-                }
-            },
-            fire_glow = {
-                filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
-                priority = "extra-high",
-                frame_count = 1,
-                width = 576,
-                height = 576,
-                scale = 0.5,
-                blend_mode = "additive"
-            }
-        },
+			south = {
+				structure = {
+					layers = {
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5
+						},
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5,
+							draw_as_shadow = true
+						}
+					}
+				},
+				fire_glow = {
+					filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
+					priority = "extra-high",
+					frame_count = 1,
+					width = 576,
+					height = 576,
+					scale = 0.5,
+					blend_mode = "additive"
+				}
+			},
 
-        west = {
-            structure = {
-                layers = {
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5
-                    },
-                    {
-                        filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
-                        priority = "high",
-                        width = 576,
-                        height = 576,
-                        scale = 0.5,
-                        draw_as_shadow = true
-                    }
-                }
-            },
-            fire_glow = {
-                filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
-                priority = "extra-high",
-                frame_count = 1,
-                width = 576,
-                height = 576,
-                scale = 0.5,
-                blend_mode = "additive"
-            }
-        }
-    },
+			west = {
+				structure = {
+					layers = {
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5
+						},
+						{
+							filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_shadow.png",
+							priority = "high",
+							width = 576,
+							height = 576,
+							scale = 0.5,
+							draw_as_shadow = true
+						}
+					}
+				},
+				fire_glow = {
+					filename = ENTITYPATH_BIO .. "bio_solar_boiler/bio_Solar_Boiler_light.png",
+					priority = "extra-high",
+					frame_count = 1,
+					width = 576,
+					height = 576,
+					scale = 0.5,
+					blend_mode = "additive"
+				}
+			}
+		},
 
-    fire_flicker_enabled = false,
-    fire_glow_flicker_enabled = false,
-    burning_cooldown = 20
-},
+		fire_flicker_enabled = false,
+		fire_glow_flicker_enabled = false,
+		burning_cooldown = 20
+	},
+
+	{
+	  type = "corpse",
+	  name = "bi-solar-boiler-remnant",
+	  localised_name = {"entity-name.bi-solar-boiler-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+	  tile_width = 9,
+	  tile_height = 9,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "bio_solar_boiler_remnant.png",
+		  line_length = 1,
+		  width = 576,
+		  height = 576,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0,0},
+		  scale = 0.5
+		}
+	  }
+	},
+
+
     })
 end

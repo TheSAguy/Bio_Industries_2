@@ -55,7 +55,7 @@ return function(mod_name)
     end
 
     ------------------------------------------------------------------------------------
-    -- Sane values for collision masks
+    -- Same values for collision masks
     -- Default: {"item-layer", "object-layer", "rail-layer", "floor-layer", "water-tile"}
     common.RAIL_BRIDGE_MASK = { "object-layer", "consider-tile-transitions" }
 

@@ -22,6 +22,7 @@ data:extend({
     flow_color = {r = 0.1, g = 1.0, b = 0.0},
     pressure_to_speed_ratio = 0.4,
     flow_to_energy_ratio = 0.59,
+    subgroup = "bio-bio-fuel-fluid",
     order = "a[fluid]-b[biomass]"
   },
 })

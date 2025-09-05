@@ -117,38 +117,3 @@ data:extend({
   
 })
 
-  if BI.Settings.BI_Game_Tweaks_Recipe then
-  data:extend({
-    {
-    type = "rail-planner",
-    name = "bi-rail-wood",
-	icon = ICONPATH_E .. "rail-wood.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "rail-wood.png",
-        icon_size = 64,
-      }
-    },
-    localised_name = {"item-name.bi-rail-wood"},
-    subgroup = "train-transport",
-    order = "a[rail]-0[rail]",
-    inventory_move_sound = item_sounds.train_inventory_move,
-    pick_sound = item_sounds.train_inventory_pickup,
-    drop_sound = item_sounds.train_inventory_move,
-    place_result = "straight-rail",
-    stack_size = 100,
-    rails =
-    {
-      "straight-rail",
-      "curved-rail-a",
-      "curved-rail-b",
-      "half-diagonal-rail"
-    },
-    manual_length_limit = 22.5 -- 2*(Curved-A) + 2*(Curved-B) + their planner penalty + margin
-  },
-  
-   })
-  end
-  
-

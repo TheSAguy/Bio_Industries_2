@@ -2,6 +2,7 @@ local BioInd = require('common')('Bio_Industries_2')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_W = BioInd.modRoot .. "/graphics/icons/weapons/"
 local ENTITYPATH_BIO = "__Bio_Industries_2__/graphics/entities/"
+local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
 data:extend({
   --- Basic Dart
@@ -241,7 +242,7 @@ data:extend({
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.25, result = "bi-dart-turret"},
     max_health = 300,
-    corpse = "medium-remnants",
+    corpse = "bi-dart-turret-remnant",
     collision_box = {{-0.2, -0.2 }, {0.2, 0.2}},
     selection_box = {{-0.4, -0.4 }, {0.4, 0.4}},
     rotation_speed = 0.05,
@@ -266,17 +267,7 @@ data:extend({
       cooldown = 3.6,  -- cooldown = 6 -- darkfrei: means cooldown 6/60 sec or 10 shoots at second; = 60 is one shoot/sec
       projectile_creation_distance = 1.41,
       projectile_center = {-0.0625, 0.55},
-      -- darkfrei: darts haven't shells :)
---[[      shell_particle = {
-  name = "shell-particle",
-  direction_deviation = 0.1,
-  speed = 0.15,
-  speed_deviation = 0.03,
-  center = {-0.0625, 0},
-  creation_distance = -1.925,
-  starting_frame_speed = 0.2,
-  starting_frame_speed_deviation = 0.1
-      }, ]]
+
       range = 20,
       sound = {
         filename = "__Bio_Industries_2__/sound/dart-turret.ogg",
@@ -287,6 +278,40 @@ data:extend({
     graphics_set = {}
   },
 
+	---- corpse
+	
+	{
+	  type = "corpse",
+	  name = "bi-dart-turret-remnant",
+	  localised_name = {"entity-name.bi-dart-turret-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-0.5, -0.5 }, {0.5, 0.5}},
+	  tile_width = 1,
+	  tile_height = 1,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "bio_turret_remnant.png",
+		  line_length = 1,
+		  width = 224,
+		  height = 160,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0.25, -0.25},
+		  scale = 0.5,
+		}
+	  }
+	},
 
 })
 

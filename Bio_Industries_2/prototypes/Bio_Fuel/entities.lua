@@ -4,6 +4,7 @@ local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ENTITYPATH = "__base__/graphics/entity/boiler/"
 local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
+local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
 
 require("util")
@@ -33,7 +34,7 @@ data:extend({
         flags = { "placeable-neutral", "player-creation" },
         minable = { hardness = 0.2, mining_time = 0.5, result = "bi-bio-reactor" },
         max_health = 100,
-        corpse = "big-remnants",
+        corpse = "bi-bio-reactor-remnant",
         fluid_boxes = {
             {
                 production_type = "input",
@@ -146,6 +147,42 @@ data:extend({
         },
         allowed_effects = { "consumption", "speed", "productivity", "pollution" },
     },
+	
+	--- corpse
+	
+	{
+	  type = "corpse",
+	  name = "bi-bio-reactor-remnant",
+	  localised_name = {"entity-name.bi-bio-reactor-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+	  tile_width = 3,
+	  tile_height = 3,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "bioreactor_remnant.png",
+		  line_length = 1,
+		  width = 182,
+		  height = 256,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0, -0.5},
+		  scale = 0.5
+		}
+	  }
+	},
+
 })
 
 if BI.Settings.BI_Bio_Fuel then

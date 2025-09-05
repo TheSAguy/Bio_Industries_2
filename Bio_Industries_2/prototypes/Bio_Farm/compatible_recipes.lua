@@ -2,7 +2,7 @@ local BioInd = require('common')('Bio_Industries_2')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_BA = BioInd.modRoot .. "/graphics/icons/mod_bobangels/"
 local ICONPATH_AAI = BioInd.modRoot .. "/graphics/icons/mod_aai/"
-local ICONPATH_AAI = BioInd.modRoot .. "/graphics/icons/mod_krastorio/"
+local ICONPATH_KR = BioInd.modRoot .. "/graphics/icons/mod_krastorio/"
 local ICONPATHMIPS = BioInd.modRoot .. "/graphics/icons/mips/"
 
 data:extend({
@@ -224,16 +224,6 @@ if data.raw.fluid["water-yellow-waste"] and mods["angelspetrochem"] then
     {"recipe-name.bi-biomass-conversion-4-yellow-waste"}
   data.raw.recipe["bi-biomass-conversion-4"].localised_description =
     {"recipe-description.bi-biomass-conversion-4-yellow-waste"}
-end
-
--- Krastorio
-if mods["Krastorio"] then
-  -- Replace liquid air with oxygen in Algae Biomass conversion 2 and 3
-  thxbob.lib.recipe.replace_ingredient("bi-fertilizer-1", "nitrogen", "k-nitrogen")
-  thxbob.lib.recipe.replace_ingredient("bi-fertilizer-2", "nitrogen", "k-nitrogen")
-
-  thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "k-oxygen")
-  thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "k-oxygen")
 end
 
 

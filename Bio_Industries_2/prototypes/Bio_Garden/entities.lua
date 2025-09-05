@@ -1,8 +1,8 @@
 local BioInd = require('common')('Bio_Industries_2')
-
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
+local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
 require("util")
 
@@ -24,7 +24,7 @@ data:extend({
         minable = { hardness = 0.2, mining_time = 0.5, result = "bi-bio-garden" },
         fast_replaceable_group = "bi-bio-garden",
         max_health = 150,
-        corpse = "medium-remnants",
+        corpse = "bi-bio-garden-remnant",
         collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
         selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
         fluid_boxes = {
@@ -84,6 +84,41 @@ data:extend({
         -- won't be affected by beacons!
         allowed_effects = { "consumption", "speed" },
     },
+	---- corpse
+	{
+	  type = "corpse",
+	  name = "bi-bio-garden-remnant",
+	  localised_name = {"entity-name.bi-bio-garden-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+	  tile_width = 3,
+	  tile_height = 3,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "bio_garden_remnant.png",
+		  line_length = 1,
+		  width = 256,
+		  height = 320,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0, -0.75},
+		  scale = 0.5
+		}
+	  }
+	},
+		
+	
 	
 ---- Bio Garden Large
     {
@@ -101,7 +136,7 @@ data:extend({
         minable = { hardness = 0.6, mining_time = 1, result = "bi-bio-garden-large" },
 		fast_replaceable_group = "bi-bio-garden-large",
         max_health = 1200,
-        corpse = "medium-remnants",
+        corpse = "bi-bio-garden-large-remnant",
 		collision_box = {{-4.3, -4.3}, {4.3, 4.3}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		scale_entity_info_icon = true,
@@ -189,6 +224,38 @@ data:extend({
         allowed_effects = { "consumption", "speed" },
     },
 	
+	{
+  type = "corpse",
+  name = "bi-bio-garden-large-remnant",
+  localised_name = {"entity-name.bi-bio-garden-large-remnant"},
+  icon = "__base__/graphics/icons/remnants.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+  BI_add_icon = true,
+  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+  subgroup = "remnants",
+  order = "z-z-z",
+  selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+  tile_width = 9,
+  tile_height = 9,
+  selectable_in_game = false,
+  time_before_removed = 60 * 60 * 15, -- 15 minutes
+  final_render_layer = "remnants",
+  remove_on_tile_placement = false,
+  animation =
+  {
+    {
+      filename = REMNANTSPATH .. "bio_garden_large_remnant.png",
+      line_length = 1,
+      width = 640,
+      height = 704,
+      frame_count = 1,
+      direction_count = 1,
+      shift = {0, -0.5},
+      scale = 0.5
+    }
+  }
+},
 ---- Bio Garden Huge
     {
         type = "assembling-machine",
@@ -205,7 +272,7 @@ data:extend({
         minable = { hardness = 1.2, mining_time = 2, result = "bi-bio-garden-huge" },
 		fast_replaceable_group = "bi-bio-garden-huge",
         max_health = 2000,
-        corpse = "medium-remnants",
+        corpse = "bi-bio-garden-huge-remnant",
 		collision_box = {{-13.3, -13.3}, {13.3, 13.3}},
 		selection_box = {{-13.5, -13.5}, {13.5, 13.5}},
 		scale_entity_info_icon = true,
@@ -336,4 +403,38 @@ data:extend({
         -- won't be affected by beacons!
         allowed_effects = { "consumption", "speed" },
     },
+	---- corpse
+	
+{
+  type = "corpse",
+  name = "bi-bio-garden-huge-remnant",
+  localised_name = {"entity-name.bi-bio-garden-huge-remnant"},
+  icon = "__base__/graphics/icons/remnants.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+  BI_add_icon = true,
+  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+  subgroup = "remnants",
+  order = "z-z-z",
+  selection_box = {{-13.5, -13.5}, {13.5, 13.5}},
+  tile_width = 27,
+  tile_height = 27,
+  selectable_in_game = false,
+  time_before_removed = 60 * 60 * 15, -- 15 minutes
+  final_render_layer = "remnants",
+  remove_on_tile_placement = false,
+  animation =
+  {
+    {
+      filename = REMNANTSPATH .. "bio_garden_huge_remnant.png",
+      line_length = 1,
+      width = 896,
+      height = 928,
+      frame_count = 1,
+      direction_count = 1,
+      shift = {0, -0.5},
+    }
+  }
+}
+	
 })

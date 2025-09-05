@@ -1,24 +1,21 @@
 local tile_graphics = require("__base__/prototypes/tile/tile-graphics")
-
 local BioInd = require('common')('Bio_Industries_2')
-
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local WOODPATH = BioInd.modRoot .. "/graphics/entities/wood_products/"
-
+local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 local ENTITYPATH = "__base__/graphics/entity/"
 local PIPEPATH = ENTITYPATH .. "pipe/"
-
 local SNDPATH = "__base__/sound/"
 
 local sounds = {}
 sounds.walking_sound = {}
-for i = 1, 11 do
-  sounds.walking_sound[i] = {
-    filename = SNDPATH .. "walking/concrete-" .. i ..".ogg",
-    volume = 1.2
-  }
-end
+	for i = 1, 11 do
+	  sounds.walking_sound[i] = {
+		filename = SNDPATH .. "walking/concrete-" .. i ..".ogg",
+		volume = 1.2
+	  }
+	end
 
 -- Used for Wooden Pipe Pictures
 pipepictures_w = function()
@@ -254,7 +251,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-wooden-pole-big"},
     max_health = 150,
-    corpse = "medium-remnants",
+    corpse = "bi-wooden-pole-big-remnant",
     resistances = {
       {
         type = "fire",
@@ -269,7 +266,7 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     drawing_box = {{-1, -6}, {1, 0.5}},
     maximum_wire_distance = 24,
-        supply_area_distance = 1.5, -- This is the radius, so the supply area is 3x3.
+    supply_area_distance = 1.5, -- This is the radius, so the supply area is 3x3.
     pictures = {
       filename = WOODPATH .. "big-wooden-pole-01.png",
       priority = "high",
@@ -322,7 +319,42 @@ data:extend({
       width = 12,
       height = 12
     },
-  }
+  },
+  
+  ---- corpse	  
+	  {
+	  type = "corpse",
+	  name = "bi-wooden-pole-big-remnant",
+	  localised_name = {"entity-name.bi-wooden-pole-big-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	  tile_width = 1,
+	  tile_height = 1,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "big-wooden-pole_remnant.png",
+		  line_length = 1,
+		  width = 108,
+		  height = 360,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0, -2.5},
+		  scale = 0.5
+		}
+	  }
+	},
+
 })
 
 ---- Huge Wooden Pole
@@ -344,7 +376,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-wooden-pole-huge"},
     max_health = 250,
-    corpse = "medium-remnants",
+    corpse = "bi-wooden-pole-huge-remnant",
     resistances = {
       {
         type = "fire",
@@ -426,6 +458,41 @@ data:extend({
       priority = "extra-high-no-scale"
     },
   },
+  
+  ---- corpse
+  {
+  type = "corpse",
+  name = "bi-wooden-pole-huge-remnant",
+  localised_name = {"entity-name.bi-wooden-pole-huge-remnant"},
+  icon = "__base__/graphics/icons/remnants.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+  BI_add_icon = true,
+  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+  subgroup = "remnants",
+  order = "z-z-z",
+  selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+  tile_width = 1,
+  tile_height = 1,
+  selectable_in_game = false,
+  time_before_removed = 60 * 60 * 15, -- 15 minutes
+  final_render_layer = "remnants",
+  remove_on_tile_placement = false,
+  animation =
+  {
+    {
+      filename = REMNANTSPATH .. "huge_wooden_pole_remnant.png",
+      line_length = 1,
+      width = 128,
+      height = 402,
+      frame_count = 1,
+      direction_count = 1,
+      shift = {0, -2.76},
+      scale = 0.5
+    }
+  }
+},
+
 })
 
 ---- Wood Fence
@@ -702,6 +769,40 @@ data:extend({
       }
     }
   },
+  --- corpse
+	  {
+	  type = "corpse",
+	  name = "bi-wooden-fence-remnant",
+	  localised_name = {"entity-name.bi-wooden-fence-remnant"},
+	  icon = "__base__/graphics/icons/remnants.png",
+	  icon_size = 64,
+	  icon_mipmaps = 4,
+	  BI_add_icon = true,
+	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+	  subgroup = "remnants",
+	  order = "z-z-z",
+	  selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	  tile_width = 1,
+	  tile_height = 1,
+	  selectable_in_game = false,
+	  time_before_removed = 60 * 60 * 15, -- 15 minutes
+	  final_render_layer = "remnants",
+	  remove_on_tile_placement = false,
+	  animation =
+	  {
+		{
+		  filename = REMNANTSPATH .. "wooden_fence_remnant.png",
+		  line_length = 1,
+		  width = 128,
+		  height = 128,
+		  frame_count = 1,
+		  direction_count = 1,
+		  shift = {0, 0},
+		  scale = 0.5
+		}
+	  }
+	},
+  
 })
 
 ---- Wood Pipe
@@ -720,7 +821,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.075, result = "bi-wood-pipe"},
     max_health = 100,
-    corpse = "small-remnants",
+    corpse = "bi-wood-pipe-remnant",
     resistances = {
       {
         type = "fire",
@@ -757,6 +858,41 @@ data:extend({
     horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
     vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
   },
+  ---- corpse
+  {
+  type = "corpse",
+  name = "bi-wood-pipe-remnant",
+  localised_name = {"entity-name.bi-wood-pipe-remnant"},
+  icon = "__base__/graphics/icons/remnants.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+  BI_add_icon = true,
+  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
+  subgroup = "remnants",
+  order = "z-z-z",
+  selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+  tile_width = 1,
+  tile_height = 1,
+  selectable_in_game = false,
+  time_before_removed = 60 * 60 * 15, -- 15 minutes
+  final_render_layer = "remnants",
+  remove_on_tile_placement = false,
+  animation =
+  {
+    {
+      filename = REMNANTSPATH .. "woodpipe_remnant.png",
+      line_length = 1,
+      width = 128,
+      height = 128,
+      frame_count = 1,
+      direction_count = 1,
+      shift = {0,0},
+      scale = 0.5
+    }
+  }
+},
+  
+  
 })
 
 ---- Wood Pipe to Ground
@@ -775,7 +911,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.075, result = "bi-wood-pipe-to-ground"},
     max_health = 150,
-    corpse = "small-remnants",
+    corpse = "bi-wood-pipe-remnant",
     resistances = {
       {
         type = "fire",

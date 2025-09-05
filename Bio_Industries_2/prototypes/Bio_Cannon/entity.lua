@@ -200,7 +200,7 @@ if BI.Settings.Bio_Cannon then
                             line_length = 1,
                             axially_symmetrical = false,
                             shift = {0, -0.8},
-                            filename = REMNANTSPATH .. "hr_bio_cannon_remnant.png",
+                            filename = REMNANTSPATH .. "bio_cannon_remnant.png",
                             scale = 0.5
                     }
 

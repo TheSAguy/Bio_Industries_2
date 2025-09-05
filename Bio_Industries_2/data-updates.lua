@@ -458,7 +458,8 @@ if not data.raw.fluid["nitrogen"] then
             flow_color = { r = 0.0, g = 0.0, b = 1.0 },
             pressure_to_speed_ratio = 0.4,
             flow_to_energy_ratio = 0.59,
-            order = "a[fluid]-b[nitrogen]"
+            subgroup = "bio-bio-farm-intermediate-product",
+            order = "ab"
         },
     })
     BioInd.writeDebug("Made recipe for \"nitrogen\".")
@@ -485,7 +486,8 @@ if not data.raw.fluid["nitrogen"] then
                 flow_color = { r = 0.5, g = 1.0, b = 1.0 },
                 pressure_to_speed_ratio = 0.4,
                 flow_to_energy_ratio = 0.59,
-                order = "a[fluid]-b[liquid-air]"
+                subgroup = "bio-bio-farm-intermediate-product",
+                order = "aa"
             },
         })
         BioInd.writeDebug("Made recipe for \"liquid-air\".")
