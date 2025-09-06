@@ -559,14 +559,28 @@ if BI.Settings.BI_Game_Tweaks_Recipe then
 	data.raw["rail-remnants"]["half-diagonal-rail-remnants"].pictures = new_rail_remnants_pictures_vanilla("half-diagonal")
 	data.raw["rail-remnants"]["curved-rail-a-remnants"].pictures = new_rail_remnants_pictures_vanilla("curved-a")
 	data.raw["rail-remnants"]["curved-rail-b-remnants"].pictures = new_rail_remnants_pictures_vanilla("curved-b")
-	--- Let me try and remove decoratives at the same time (Does not seem to work...)
-	data.raw["rail-planner"]["bi-rail-wood"].decorative_removal_probability = 1.0
-	data.raw["straight-rail"]["straight-rail"].decorative_removal_probability = 1.0
-	data.raw["half-diagonal-rail"]["half-diagonal-rail"].decorative_removal_probability = 1.0
-	data.raw["curved-rail-a"]["curved-rail-a"].decorative_removal_probability = 1.0
-	data.raw["curved-rail-b"]["curved-rail-b"].decorative_removal_probability = 1.0
-
+	--- Let me try and remove decoratives at the same time 
+	data.raw["rail-planner"]["rail"].remove_decoratives = "true"
+	data.raw["straight-rail"]["straight-rail"].remove_decoratives = "true"
+	data.raw["half-diagonal-rail"]["half-diagonal-rail"].remove_decoratives = "true"
+	data.raw["curved-rail-a"]["curved-rail-a"].remove_decoratives = "true"
+	data.raw["curved-rail-b"]["curved-rail-b"].remove_decoratives = "true"
+	data.raw["rail-planner"]["rail"].removes_soft_decoratives = true
+	data.raw["straight-rail"]["straight-rail"].removes_soft_decoratives = true
+	data.raw["half-diagonal-rail"]["half-diagonal-rail"].removes_soft_decoratives = true
+	data.raw["curved-rail-a"]["curved-rail-a"].removes_soft_decoratives = true
+	data.raw["curved-rail-b"]["curved-rail-b"].removes_soft_decoratives = true
 	
+	data.raw["rail-planner"]["bi-rail-wood"].remove_decoratives = "true"
+	data.raw["straight-rail"]["bi-straight-rail-wood"].remove_decoratives = "true"
+	data.raw["half-diagonal-rail"]["bi-half-diagonal-rail-wood"].remove_decoratives = "true"
+	data.raw["curved-rail-a"]["bi-curved-rail-a-wood"].remove_decoratives = "true"
+	data.raw["curved-rail-b"]["bi-curved-rail-b-wood"].remove_decoratives = "true"
+	data.raw["rail-planner"]["bi-rail-wood"].removes_soft_decoratives = true
+	data.raw["straight-rail"]["bi-straight-rail-wood"].removes_soft_decoratives = true
+	data.raw["half-diagonal-rail"]["bi-half-diagonal-rail-wood"].removes_soft_decoratives = true
+	data.raw["curved-rail-a"]["bi-curved-rail-a-wood"].removes_soft_decoratives = true
+	data.raw["curved-rail-b"]["bi-curved-rail-b-wood"].removes_soft_decoratives = true	
 end
 
 
