@@ -76,6 +76,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
     name = "bi-straight-rail-wood",
     order = "a[ground-rail]-a[bi-straight-rail-wood]",
     icon = ICONPATH_E .. "straight-rail-wood.png",
+	localised_name = {"entity-name.bi-straight-rail-wood"},
     collision_box = {{-1, -1}, {1, 1}}, -- has custommly generated box, but the prototype needs something that is used to generate building smokes
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.2, result = "bi-rail-wood", count = 1},
@@ -112,6 +113,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
     order = "a[ground-rail]-b[bi-half-diagonal-rail-wood]",
     deconstruction_alternative = "bi-straight-rail-wood",
     icon = ICONPATH_E .. "curved-rail-wood.png",
+	localised_name = {"entity-name.bi-half-diagonal-rail-wood"},
     collision_box = {{-0.75, -2.236}, {0.75, 2.236}}, -- has custommly generated box, but the prototype needs something that is used to generate building smokes
     tile_height = 2,
     extra_planner_goal_penalty = -4,
@@ -159,6 +161,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
     order = "a[ground-rail]-c[bi-curved-rail-a-wood]",
     deconstruction_alternative = "bi-straight-rail-wood",
     icon = ICONPATH_E .. "curved-rail-wood.png",
+	localised_name = {"entity-name.bi-curved-rail-a-wood"},
     collision_box = {{-0.75, -2.516}, {0.75, 2.516}}, -- has custommly generated box, but the prototype needs something that is used to generate building smokes
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.2, result = "bi-rail-wood", count = 3},
@@ -205,6 +208,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
     order = "a[ground-rail]-d[bi-curved-rail-b-wood]",
     deconstruction_alternative = "bi-straight-rail-wood",
     icon = ICONPATH_E .. "curved-rail-wood.png",
+	localised_name = {"entity-name.bi-curved-rail-b-wood"},
     collision_box = {{-0.75, -2.441}, {0.75, 2.441}}, -- has custommly generated box, but the prototype needs something that is used to generate building smokes
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.2, result = "bi-rail-wood", count = 3},

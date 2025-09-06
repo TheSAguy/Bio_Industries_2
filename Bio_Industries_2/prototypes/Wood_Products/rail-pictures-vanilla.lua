@@ -1,7 +1,5 @@
 local util = require("util")
 
-local wood_tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
-
 local ground_rail_render_layers =
 {
   stone_path_lower = "rail-stone-path-lower",
@@ -21,12 +19,12 @@ local rail_segment_visualisation_endings =
   scale = 0.5,
   direction_count = 16,
   frame_count = 6,
-  -- tint = wood_tint,
   usage = "rail"
 }
 
-local function make_new_rail_pictures_wood(keys, elems, max_variations)
-  local function make_sprite_definition_wood(filename, elem, key, variation_count)
+
+local function make_new_rail_pictures(keys, elems, max_variations)
+  local function make_sprite_definition(filename, elem, key, variation_count)
     return
     {
       filename = filename,
@@ -41,7 +39,6 @@ local function make_new_rail_pictures_wood(keys, elems, max_variations)
       scale = 0.5;
       shift = util.by_pixel(key[4][1], key[4][2]),
       variation_count = variation_count,
-	  -- tint = wood_tint,
       usage = "rail"
     }
   end
@@ -63,10 +60,10 @@ local function make_new_rail_pictures_wood(keys, elems, max_variations)
         if (type(elem[2]) == "table") then
           layers = { layers = {} }
           for _, subelem in ipairs(elem[2]) do
-            table.insert(layers.layers, make_sprite_definition_wood(subelem[1], subelem, key, variations))
+            table.insert(layers.layers, make_sprite_definition(subelem[1], subelem, key, variations))
           end
         else
-          layers = make_sprite_definition_wood(elem[2], elem, key, variations)
+          layers = make_sprite_definition(elem[2], elem, key, variations)
         end
 
         if (elem[1] ~= nil) then
@@ -82,7 +79,7 @@ local function make_new_rail_pictures_wood(keys, elems, max_variations)
   return res
 end
 
-function new_rail_pictures_wood(rail_type)
+function new_rail_pictures_vanilla(rail_type)
   local keys
   local NOT_USED_POSITION = {0, 0}
   local NOT_USED_SIZE = {1, 1}
@@ -140,13 +137,13 @@ function new_rail_pictures_wood(rail_type)
   {
     { "metals",                       "__base__/graphics/entity/rails/rail/rail-metals.png",             mipmap = true },
     { "backplates",                   "__base__/graphics/entity/rails/rail/rail-backplates.png",         mipmap = true },
-    { "ties",                         "__Bio_Industries_2__/graphics/entities/wood_products/rails/new_rail/rail-ties-wood.png"          },
+    { "ties",                         "__Bio_Industries_2__/graphics/entities/wood_products/rails/new_rail/rail-ties-concrete.png"          },
     { "stone_path",                   "__base__/graphics/entity/rails/rail/rail-stone-path-inside.png"                 },
     { "stone_path_background",        "__base__/graphics/entity/rails/rail/rail-stone-path.png"                        },
     { "segment_visualisation_middle", "__base__/graphics/entity/rails/rail/rail-segment-visualisations-middle.png"     },
   }
 
-  local res = make_new_rail_pictures_wood(keys, elems)
+  local res = make_new_rail_pictures(keys, elems)
   res["rail_endings"] =
   {
     sheets =
@@ -158,7 +155,6 @@ function new_rail_pictures_wood(rail_type)
         width = 256,
         height = 256,
         scale = 0.5,
-		-- tint = wood_tint,
         usage = "rail"
       },
       {
@@ -168,7 +164,6 @@ function new_rail_pictures_wood(rail_type)
         width = 256,
         height = 256,
         scale = 0.5,
-		-- tint = wood_tint,
         usage = "rail"
       }
     }
@@ -178,7 +173,7 @@ function new_rail_pictures_wood(rail_type)
   return res
 end
 
-function new_rail_remnants_pictures(rail_type)
+function new_rail_remnants_pictures_vanilla(rail_type)
   local keys
   local NOT_USED_POSITION = {0, 0}
   local NOT_USED_SIZE = {1, 1}
@@ -236,12 +231,12 @@ function new_rail_remnants_pictures(rail_type)
   {
     { "metals",                "__base__/graphics/entity/rails/rail/remnants/rail-remnants-metals.png",             mipmap = true, allow_forced_downscale = true },
     { "backplates",            "__base__/graphics/entity/rails/rail/remnants/rail-remnants-backplates.png",         mipmap = true, allow_forced_downscale = true },
-    { "ties",                  "__Bio_Industries_2__/graphics/entities/wood_products/rails/new_rail/rail-remnants-ties-wood.png"      , allow_forced_downscale = true },
+    { "ties",                  "__Bio_Industries_2__/graphics/entities/wood_products/rails/new_rail/rail-remnants-ties-concrete.png"      , allow_forced_downscale = true },
     { "stone_path",            "__base__/graphics/entity/rails/rail/remnants/rail-remnants-stone-path-inside.png"                , allow_forced_downscale = true },
     { "stone_path_background", "__base__/graphics/entity/rails/rail/remnants/rail-remnants-stone-path.png"                       , allow_forced_downscale = true }
   }
 
-  local res = make_new_rail_pictures_wood(keys, elems)
+  local res = make_new_rail_pictures(keys, elems)
   res["rail_endings"] =
   {
     sheets =
@@ -253,7 +248,6 @@ function new_rail_remnants_pictures(rail_type)
         width = 256,
         height = 256,
         scale = 0.5,
-		-- tint = wood_tint,
         usage = "rail"
       },
       {
@@ -263,7 +257,6 @@ function new_rail_remnants_pictures(rail_type)
         width = 256,
         height = 256,
         scale = 0.5,
-		-- tint = wood_tint,
         usage = "rail"
       }
     }
@@ -271,5 +264,4 @@ function new_rail_remnants_pictures(rail_type)
   res["render_layers"] = ground_rail_render_layers
   return res
 end
-
 
