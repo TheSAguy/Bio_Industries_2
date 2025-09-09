@@ -144,8 +144,8 @@ if data.raw.item["solid-carbon"] and mods["angelspetrochem"] then
   data.raw.recipe["bi-pellet-coke"].icon = ICONPATH_BA .. "pellet_coke_c.png"
   data.raw.recipe["bi-pellet-coke"].icon_size = 64
   thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi-pellet-coke-2")
-elseif data.raw.item["carbon"] and mods["bobplates"] then
-  thxbob.lib.recipe.add_new_ingredient ("bi-pellet-coke-2", {type = "item", name = "carbon", amount = 10})
+elseif data.raw.item["bob-carbon"] and mods["bobplates"] then
+  thxbob.lib.recipe.add_new_ingredient ("bi-pellet-coke-2", {type = "item", name = "bob-carbon", amount = 10})
   data.raw.recipe["bi-coke-coal"].icon = ICONPATH_BA .. "pellet_coke_1.png"
   data.raw.recipe["bi-coke-coal"].icon_size = 64
   data.raw.recipe["bi-pellet-coke-2"].icon = ICONPATH_BA .. "pellet_coke_b.png"
@@ -178,10 +178,10 @@ if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
   data.raw.recipe["bi-fertilizer-2"].icon = ICONPATH_BA .. "fertilizer_solid_sodium_hydroxide.png"
   data.raw.recipe["bi-fertilizer-2"].icon_size = 64
   thxbob.lib.tech.add_recipe_unlock("bi-tech-fertilizer", "bi-fertilizer-2")
-elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
+elseif data.raw.item["bob-sodium-hydroxide"] and mods["bobplates"] then
   thxbob.lib.recipe.add_new_ingredient("bi-fertilizer-2", {
     type = "item",
-    name = "sodium-hydroxide",
+    name = "bob-sodium-hydroxide",
     amount = 10
   })
   thxbob.lib.tech.add_recipe_unlock("bi-tech-fertilizer", "bi-fertilizer-2")

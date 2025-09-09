@@ -194,7 +194,7 @@ data:extend(
     subgroup = "bio-bio-farm-raw",
     order = "a[bi]-a-bx[bi-woodbrick]",
     fuel_category = "chemical",
-    fuel_value = "20MJ",
+    fuel_value = "160MJ",
     stack_size = 200,
     weight = 4 * kg,
   },
@@ -519,11 +519,11 @@ data:extend(
     {
       type = "item",
       name = "fertilizer",
-      icon = ICONPATH .. "fertilizer_64.png",
+      icon = ICONPATH .. "fertilizer.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "fertilizer_64.png",
+          icon = ICONPATH .. "fertilizer.png",
           icon_size = 64,
         }
       },
@@ -537,11 +537,11 @@ data:extend(
     {
       type = "item",
       name = "bi-adv-fertilizer",
-      icon = ICONPATH .. "advanced_fertilizer_64.png",
+      icon = ICONPATH .. "fertilizer_advanced.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "advanced_fertilizer_64.png",
+          icon = ICONPATH .. "fertilizer_advanced.png",
           icon_size = 64,
         }
       },

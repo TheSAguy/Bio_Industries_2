@@ -28,13 +28,13 @@ end
 
 
 --- Help Files
+require("libs.functions")            -- From Bob's Libary
+require("libs.error-functions")      -- From Bob's Libary
 require("libs.item-functions")       -- From Bob's Libary
 require("libs.recipe-functions")     -- From Bob's Libary
 require("libs.technology-functions") -- From Bob's Libary
-require("libs.functions")            -- From Bob's Libary
 require("libs.category-functions")   -- From Bob's Libary
 require("libs.bi_functions")         -- Functions
-
 require("prototypes.category")
 
 

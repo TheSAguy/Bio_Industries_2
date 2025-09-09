@@ -1,5 +1,6 @@
 local BioInd = require('common')('Bio_Industries_2')
 
+
 for var, name in pairs({
     Bio_Cannon = "BI_Bio_Cannon",
     BI_Bio_Fuel = "BI_Bio_Fuel",
@@ -18,6 +19,7 @@ end
 
 BioInd.show("BI.Settings.BI_Easy_Bio_Gardens", BI.Settings.BI_Easy_Bio_Gardens)
 local ICONPATH = "__Bio_Industries_2__/graphics/icons/"
+local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ICONPATH_PY = "__Bio_Industries_2__/graphics/icons/mod_py/"
 
@@ -134,8 +136,8 @@ end
 --- Adds Solar Farm, Solar Plant, Musk Floor, Bio Accumulator and Substation to Tech tree
 if BI.Settings.BI_Solar_Additions then
     if data.raw.technology["bob-solar-energy-2"] then
-        thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-3", "bi-bio-accumulator")
-        thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi-large-substation")
+        thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi-bio-accumulator")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi-large-substation")
         thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi-bio-solar-farm")
         thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi-solar-boiler-hidden-panel")
     else
@@ -153,33 +155,40 @@ if BI.Settings.BI_Solar_Additions then
 
     --- Electric redo if Bob' Electric
     -- Huge Electric Pole
-    if data.raw.item["tinned-copper-cable"] then
+    if data.raw.item["bob-tinned-copper-cable"] then
         thxbob.lib.recipe.remove_ingredient("bi-wooden-pole-huge", "wood")
         thxbob.lib.recipe.add_new_ingredient("bi-wooden-pole-huge", {
             type = "item",
-            name = "tinned-copper-cable",
+            name = "bob-tinned-copper-cable",
             amount = 15
         }
         )
     end
 
     -- Solar Farm
-    if data.raw.item["solar-panel-large"] then
+    if data.raw.item["bob-solar-panel-2"] then
         thxbob.lib.recipe.remove_ingredient("bi-bio-solar-farm", "solar-panel")
         thxbob.lib.recipe.add_new_ingredient("bi-bio-solar-farm", {
             type = "item",
-            name = "solar-panel-large",
+            name = "bob-solar-panel-2",
             amount = 30
         }
         )
     end
 
     -- Huge Sub Station
-    if data.raw.item["substation-3"] then
+    if data.raw.item["bob-substation-3"] then
         thxbob.lib.recipe.remove_ingredient("bi-large-substation", "substation")
         thxbob.lib.recipe.add_new_ingredient("bi-large-substation", {
             type = "item",
-            name = "substation-3",
+            name = "bob-substation-3",
+            amount = 6
+        }
+        )
+        thxbob.lib.recipe.remove_ingredient("bi-large-substation", "steel-plate")
+        thxbob.lib.recipe.add_new_ingredient("bi-large-substation", {
+            type = "item",
+            name = "bi-wooden-pole-huge",
             amount = 6
         }
         )
@@ -206,32 +215,32 @@ if BI.Settings.BI_Solar_Additions then
         )
     end
 
-    if data.raw.item["aluminium-plate"] then
+    if data.raw.item["bob-aluminium-plate"] then
         thxbob.lib.recipe.remove_ingredient("bi-bio-accumulator", "copper-cable")
         thxbob.lib.recipe.add_new_ingredient("bi-bio-accumulator", {
             type = "item",
-            name = "aluminium-plate",
+            name = "bob-aluminium-plate",
             amount = 50
         }
         )
     end
 
     -- Solar Mat
-    if data.raw.item["aluminium-plate"] then
+    if data.raw.item["bob-aluminium-plate"] then
         thxbob.lib.recipe.remove_ingredient("bi-solar-mat", "steel-plate")
         thxbob.lib.recipe.add_new_ingredient("bi-solar-mat", {
             type = "item",
-            name = "aluminium-plate",
+            name = "bob-aluminium-plate",
             amount = 1
         }
         )
     end
 
-    if data.raw.item["silicon-wafer"] then
+    if data.raw.item["bob-silicon-wafer"] then
         thxbob.lib.recipe.remove_ingredient("bi-solar-mat", "copper-cable")
         thxbob.lib.recipe.add_new_ingredient("bi-solar-mat", {
             type = "item",
-            name = "silicon-wafer",
+            name = "bob-silicon-wafer",
             amount = 4
         }
         )
@@ -251,6 +260,7 @@ end
 
 require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
 require("prototypes.Bio_Farm.technology2")
+
 
 -- Replace fertilizer/advanced fertilizer + water with fluid fertilizers in Bio garden recipes!
 BioInd.show("data-updates.lua -- BI.Settings.BI_Easy_Bio_Gardens", BI.Settings.BI_Easy_Bio_Gardens)
@@ -322,22 +332,6 @@ if mods["Natural_Evolution_Buildings"] then
         amount = 50
     }
     )
-end
-
-
------------- Support for Bob's Greenhouse
-if data.raw["item"]["bob-greenhouse"] then
-    data.raw["item"]["seedling"].place_result = "seedling"
-    data.raw["item"]["seedling"].icon = ICONPATH .. "Seedling.png"
-    data.raw["item"]["seedling"].icon_size = 64
-    data.raw["item"]["fertilizer"].icon = ICONPATH .. "fertilizer.png"
-    data.raw["item"]["fertilizer"].icon_size = 64
-
-    data.raw["item"]["fertilizer"].place_as_tile = {
-        result = BioInd.AB_tiles() and "vegetation-green-grass-3" or "grass-3",
-        condition_size = 1,
-        condition = { layers = { water_tile = true } }
-    }
 end
 
 
@@ -431,11 +425,9 @@ end
 
 -- We may need liquid air and nitrogen -- but not if any of the following mods is active!
 
-
-local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
-
 -- We only want to create nitrogen if it doesn't exist yet. We then also need to create
 -- liquid air.
+--[[ Removing this for now
 if not data.raw.fluid["nitrogen"] then
     data:extend({
         {
@@ -516,6 +508,225 @@ else
     data.raw.recipe["bi-liquid-air"] = nil
     data.raw.recipe["bi-nitrogen"] = nil
     BioInd.writeDebug("Removed recipes for \"nitrogen\" and \"liquid air\".")
+end
+
+]]
+
+
+ -- Replace nitrogen (BI) with bob-nitrogen (Bob's) in recipe "bi-nitrogen"
+if data.raw.fluid["bob-nitrogen"] then
+	 
+	  thxbob.lib.recipe.remove_result("bi-nitrogen", "nitrogen")
+	  thxbob.lib.recipe.add_result("bi-nitrogen", {
+		type = "fluid",
+		name = "bob-nitrogen",
+		amount = 40
+	  })
+
+	  thxbob.lib.recipe.replace_ingredient("bi-fertilizer-1", "nitrogen", "bob-nitrogen")
+	  thxbob.lib.recipe.replace_ingredient("bi-fertilizer-2", "nitrogen", "bob-nitrogen")
+
+	BioInd.writeDebug("Update nitrogen compatibility for Bob's")
+	
+end
+
+-- Replace liquid-air (BI) with bob-liquid-air (Bob's) in recipe "bi-liquid-air"
+if data.raw.fluid["bob-liquid-air"] then
+ 
+	  thxbob.lib.recipe.remove_result("bi-liquid-air", "liquid-air")
+	  thxbob.lib.recipe.add_result("bi-liquid-air", {
+		type = "fluid",
+		name = "bob-liquid-air",
+		amount = 100
+	  })
+
+      thxbob.lib.recipe.replace_ingredient("bi-nitrogen", "liquid-air", "bob-liquid-air")
+	  thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "bob-liquid-air")
+	  thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "bob-liquid-air")
+
+	BioInd.writeDebug("Update liquid-air compatibility for Bob's")
+	
+end
+
+------------ Support for Bob's Greenhouse
+-- Replace bob-fertiliser (Bob's) with fertilizer (BI) in recipe "bob-fertiliser"
+if data.raw["item"]["bob-greenhouse"] then
+ 
+		data.raw["item"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
+		data.raw["item"]["bob-fertiliser"].icon_size = 64
+		data.raw["recipe"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
+		data.raw["recipe"]["bob-fertiliser"].icon_size = 64
+		
+	  thxbob.lib.recipe.remove_result("bob-fertiliser", "bob-fertiliser")
+	  thxbob.lib.recipe.add_result("bob-fertiliser", {
+		type = "item",
+		name = "fertilizer",
+		amount = 1
+	  })
+
+
+      thxbob.lib.recipe.replace_ingredient("bob-advanced-greenhouse-cycle", "bob-fertiliser", "fertilizer")
+
+    data.raw["item"]["bob-fertiliser"].place_as_tile = {
+        result = BioInd.AB_tiles() and "vegetation-green-grass-3" or "grass-3",
+        condition_size = 1,
+        condition = { layers = { water_tile = true } }
+    }
+	
+	
+	data.raw["item"]["bob-seedling"].place_result = "seedling"
+	data.raw["item"]["bob-seedling"].icon = ICONPATH .. "Seedling.png"
+	data.raw["item"]["bob-seedling"].icon_size = 64
+	data.raw["recipe"]["bob-seedling"].icon = ICONPATH .. "Seedling.png"
+	data.raw["recipe"]["bob-seedling"].icon_size = 64
+	data.raw["recipe"]["bob-seedling"].main_product = "seedling"
+	
+	
+	thxbob.lib.recipe.replace_ingredient("bob-basic-greenhouse-cycle", "bob-seedling", "seedling")
+	thxbob.lib.recipe.replace_ingredient("bob-advanced-greenhouse-cycle", "bob-seedling", "seedling")
+	thxbob.lib.recipe.remove_result("bob-seedling", "bob-seedling")
+	thxbob.lib.recipe.add_result("bob-seedling", {
+		type = "item",
+		name = "seedling",
+		amount_min = 1, 
+		amount_max = 6
+	  })
+
+	
+	BioInd.writeDebug("Update fertiliser compatibility for Bob's")
+	
+end
+
+
+ -- Replace Bob's Resin with BI Resin
+if data.raw.item["bob-resin"] then
+	 
+	  --data.raw.item["bob-resin"] = nil -- Remove Bob's resin
+	  thxbob.lib.recipe.remove_result("bob-resin-wood", "bob-resin")
+	  thxbob.lib.recipe.add_result("bob-resin-wood", {
+		type = "item",
+		name = "resin",
+		amount = 1
+	  })
+
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-wood'")
+	
+end
+
+if data.raw.recipe["bob-resin-oil"] then
+	 
+	 thxbob.lib.recipe.remove_result("bob-resin-oil", "bob-resin")
+	 thxbob.lib.recipe.add_result("bob-resin-oil", {
+	  type = "item",
+	  name = "resin",
+	  amount = 2
+	  })
+
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-oil'")
+	
+end
+
+if data.raw.recipe["bob-rubber"] then
+	 
+	thxbob.lib.recipe.replace_ingredient("bob-rubber", "bob-resin", "resin")
+
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-rubber'")
+	
+end
+
+--- Updaet seeds to work with Space Age if present.
+
+if data.raw.item["tree-seed"] then
+	 
+	--data.raw.item["bi-seed"] = nil -- We can remove BI's seed, since it won't be used.
+	data.raw.item["bi-seed"].plant_result = "tree-plant"
+	data.raw.item["bi-seed"].place_result = "tree-plant"
+	data.raw.item["tree-seed"].stack_size = 200  -- Update tree seed stack size
+	   
+	thxbob.lib.recipe.remove_result("bi-seed-1", "bi-seed")
+	thxbob.lib.recipe.add_result("bi-seed-1", {
+	  type = "item",
+	  name = "tree-seed",
+	  amount_min = 30, 
+	  amount_max = 50
+	  })
+	thxbob.lib.recipe.remove_result("bi-seed-2", "bi-seed")  
+	thxbob.lib.recipe.add_result("bi-seed-2", {
+	  type = "item",
+	  name = "tree-seed",
+	  amount_min = 40, 
+	  amount_max = 60
+	  })
+	thxbob.lib.recipe.remove_result("bi-seed-3", "bi-seed")  
+	thxbob.lib.recipe.add_result("bi-seed-3", {
+	  type = "item",
+	  name = "tree-seed",
+	  amount_min = 50, 
+	  amount_max = 70
+	  })
+	thxbob.lib.recipe.remove_result("bi-seed-4", "bi-seed")  
+	thxbob.lib.recipe.add_result("bi-seed-4", {
+	  type = "item",
+	  name = "tree-seed",
+	  amount_min = 60, 
+	  amount_max = 100
+	  })
+	      
+	thxbob.lib.recipe.replace_ingredient("bi-seed-1", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-2", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-3", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-4", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seedling-1", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seedling-2", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seedling-3", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seedling-4", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-bomb-basic", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-bomb-standard", "bi-seed", "tree-seed")
+	thxbob.lib.recipe.replace_ingredient("bi-seed-bomb-advanced", "bi-seed", "tree-seed")
+
+	if data.raw.recipe["bi-seed-bomb-basic-recycling"] then
+
+		thxbob.lib.recipe.remove_result("bi-seed-bomb-basic-recycling", "bi-seed")  
+		thxbob.lib.recipe.add_result("bi-seed-bomb-basic-recycling", {
+		  type = "item",
+		  name = "tree-seed",
+		  amount = 100, 
+		  })
+
+	end
+	
+	if data.raw.recipe["bi-seed-bomb-standard-recycling"] then
+
+		thxbob.lib.recipe.remove_result("bi-seed-bomb-standard-recycling", "bi-seed")  
+		thxbob.lib.recipe.add_result("bi-seed-bomb-standard-recycling", {
+		  type = "item",
+		  name = "tree-seed",
+		  amount = 100, 
+		  })
+
+	end
+
+	if data.raw.recipe["bi-seed-bomb-advanced-recycling"] then
+
+		thxbob.lib.recipe.remove_result("bi-seed-bomb-advanced-recycling", "bi-seed")  
+		thxbob.lib.recipe.add_result("bi-seed-bomb-advanced-recycling", {
+		  type = "item",
+		  name = "tree-seed",
+		  amount = 100, 
+		  })
+
+	end
+	
+  if data.raw.item["tree-plant"] then
+    bobmods.lib.recipe.update_recycling_recipe({
+      "bi-seed-bomb-basic",
+      "bi-seed-bomb-standard",
+      "bi-seed-bomb-advanced",
+    })
+  end
+
+	BioInd.writeDebug("Replace BI's Seed with Space Age Tree-seed")
+	
 end
 
 -- Moved here from data-final-fixes.lua for 0.18.34/1.1.4! (Fixes https://mods.factorio.com/mod/Bio_Industries/discussion/5ff570bd916993002371332a)

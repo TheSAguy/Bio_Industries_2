@@ -265,9 +265,11 @@ if BI.Settings.BI_Game_Tweaks_Emissions_Multiplier then
         ["solid-fuel"] = 1.00,
         ["solid-carbon"] = 1.05,
         ["carbon"] = 1.05,
-        ["wood-bricks"] = 1.20,
+		["bob-carbon"] = 1.05,
+        ["wood-bricks"] = 1.10,
         ["rocket-fuel"] = 1.20,
         ["bi-seed"] = 1.30,
+		["tree-seed"] = 1.30,
         ["seedling"] = 1.30,
         ["bi-wooden-pole-big"] = 1.30,
         ["bi-wooden-pole-huge"] = 1.30,
@@ -316,7 +318,7 @@ if mods["Krastorio2"] or mods["Krastorio2-spaced-out"] then
     -- require more wood/wood pulp.
     local update = {
         "wood", "bi-woodpulp",
-        "bi-seed", "seedling", "water",
+        "bi-seed", "tree-seed","seedling", "water"
     }
     local multiply = function(items)
         for _, item in pairs(items) do
@@ -357,11 +359,11 @@ if not fertilizer.place_as_tile then
         condition_size = 1,
         condition = { layers = { water_tile = true } }
     }
-    fertilizer.icon = ICONPATH .. "fertilizer_64.png"
+    fertilizer.icon = ICONPATH .. "fertilizer.png"
     fertilizer.icon_size = 64
     fertilizer.icons = {
         {
-            icon = ICONPATH .. "fertilizer_64.png",
+            icon = ICONPATH .. "fertilizer.png",
             icon_size = 64,
         }
     }
@@ -393,6 +395,7 @@ if mods["space-exploration"] then
     local tweaks = {
         ["bi-solar-mat"]  = 400,
         ["bi-seed"]       = 800,
+		["tree-seed"]     = 800,
         ["seedling"]      = 400,
         ["bi-woodpulp"]   = 800,
         ["bi-ash"]        = 400,
