@@ -509,6 +509,7 @@ data:extend({
         results = { { type = "item", name = "bi-woodpulp", amount = 4 } },
         main_product = "",
         allow_as_intermediate = true, -- Added for 0.18.34/1.1.4
+		allow_productivity = true,
         allow_intermediates = true, -- Added for 0.18.35/1.1.5
         always_show_made_in = false, -- Added for 0.18.34/1.1.4
         allow_decomposition = false, -- Added for 0.18.34/1.1.4
@@ -542,6 +543,7 @@ data:extend({
         allow_as_intermediate = true, -- Added for 0.18.34/1.1.4
         always_show_made_in = false, -- Added for 0.18.34/1.1.4
         allow_decomposition = false, -- Added for 0.18.34/1.1.4
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -574,6 +576,7 @@ data:extend({
         allow_as_intermediate = false, -- Added for 0.18.34/1.1.4
         always_show_made_in = false,   -- Added for 0.18.34/1.1.4
         allow_decomposition = false,   -- Added for 0.18.34/1.1.4
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -603,6 +606,7 @@ data:extend({
         allow_as_intermediate = true,         -- Changed for 0.18.34/1.1.4
         always_show_made_in = false,          -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -632,7 +636,7 @@ data:extend({
         allow_as_intermediate = true, -- Changed for 0.18.34/1.1.4
         always_show_made_in = false, -- Changed for 0.18.34/1.1.4
         allow_decomposition = true, -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -658,7 +662,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = false,          -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
         energy_required = 2.5,
         ingredients = { { type = "item", name = "bi-woodpulp", amount = 12 } },
         results = { { type = "item", name = "bi-ash", amount = 6 } },
@@ -692,6 +696,7 @@ data:extend({
         always_show_made_in = true,
         allow_decomposition = false,
         allow_as_intermediate = false,
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -721,6 +726,7 @@ data:extend({
         always_show_made_in = true,
         allow_decomposition = false,
         allow_as_intermediate = false,
+		allow_productivity = true,
         -- This is a custom property for use by "Krastorio 2" (it will change
         -- ingredients/results; used for wood/wood pulp)
         mod = "Bio_Industries_2",
@@ -750,7 +756,7 @@ data:extend({
         allow_as_intermediate = false,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,            -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,            -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
     },
 
 
@@ -777,7 +783,7 @@ data:extend({
         allow_as_intermediate = false,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,            -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,            -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
     },
 
 
@@ -804,7 +810,7 @@ data:extend({
         allow_as_intermediate = true,         -- Changed for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
     },
 
 
@@ -831,7 +837,7 @@ data:extend({
         allow_as_intermediate = false,     -- Added for 0.18.34/1.1.4
         always_show_made_in = true,        -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,        -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
     },
 
 
@@ -840,7 +846,6 @@ data:extend({
         type = "recipe",
         name = "bi-pellet-coke",
         icon = ICONPATH .. "pellet_coke_solid.png",
-        --icon = "__Bio_Industries_2__/graphics/icons/pellet_coke_c.png",
         icon_size = 64,
         icons = {
             {
@@ -859,6 +864,7 @@ data:extend({
         allow_as_intermediate = false,     -- Added for 0.18.34/1.1.4
         always_show_made_in = true,        -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,        -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
     },
 
     -- CRUSHED STONE from stone --
@@ -884,7 +890,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
-
+		allow_productivity = true,
     },
 
     -- CRUSHED STONE from concrete --
@@ -911,6 +917,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
     },
 
     -- CRUSHED STONE from hazard concrete --
@@ -937,6 +944,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
 
     },
 
@@ -964,6 +972,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
     },
 
     -- CRUSHED STONE from refined hazard concrete --
@@ -990,6 +999,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
     },
 
     -- STONE Brick--
@@ -1021,6 +1031,7 @@ data:extend({
         allow_as_intermediate = true,         -- Added for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
     },
 
     -- COKERY (ENTITY)--
@@ -1079,6 +1090,7 @@ data:extend({
         allow_as_intermediate = false, -- Added for 0.18.34/1.1.4
         always_show_made_in = false, -- Added for 0.18.34/1.1.4
         allow_decomposition = true,  -- Added for 0.18.34/1.1.4
+		allow_productivity = true,
         subgroup = "bio-bio-farm-raw-entity",
         order = "b[bi]",
     },
@@ -1172,6 +1184,7 @@ data:extend({
         allow_as_intermediate = true,         -- Changed for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
         subgroup = "bio-bio-farm-intermediate-product",
         order = "b[bi-fertilizer]",
     },
@@ -1204,6 +1217,7 @@ data:extend({
         allow_as_intermediate = true,         -- Changed for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
         subgroup = "bio-bio-farm-intermediate-product",
         order = "b[bi-fertilizer]-b[bi-adv-fertilizer-1]",
     },
@@ -1236,6 +1250,7 @@ data:extend({
         allow_as_intermediate = true,         -- Changed for 0.18.34/1.1.4
         always_show_made_in = true,           -- Changed for 0.18.34/1.1.4
         allow_decomposition = true,           -- Changed for 0.18.34/1.1.4
+		allow_productivity = true,
         subgroup = "bio-bio-farm-intermediate-product",
         order = "b[bi-fertilizer]-b[bi-adv-fertilizer-2]",
         -- This is a custom property for use by "Krastorio 2" (it will change

@@ -63,6 +63,7 @@ data:extend({
     enabled = false,
     always_show_made_in = true,
     allow_decomposition = true,
+	allow_productivity = true,
     subgroup = "bio-bio-fuel-fluid",
     order = "x[oil-processing]-z1[bi-biomass]"
   },
@@ -102,6 +103,7 @@ if BI.Settings.BI_Bio_Fuel then
       allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
       always_show_made_in = true,       -- Added for 0.18.34/1.1.4
       allow_decomposition = true,       -- Added for 0.18.34/1.1.4
+	  allow_productivity = true,
     },
 
     --- Bio Boiler (ENTITY) ---
@@ -162,6 +164,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-other",
       order = "[bi-cellulose-1]",
                 },
@@ -194,6 +197,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-other",
       order = "[bi-cellulose-2]",
                   -- This is a custom property for use by "Krastorio 2" (it will change
@@ -233,6 +237,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "g[plastic-bar-1]",
                   -- This is a custom property for use by "Krastorio 2" (it will change
@@ -267,6 +272,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "g[plastic-bar-2]",
                 },
@@ -299,7 +305,8 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
-                  subgroup = "bio-bio-fuel-fluid",
+	  allow_productivity = true,
+      subgroup = "bio-bio-fuel-fluid",
       order = "x[oil-processing]-z2[bi-biomass]" -- This recipe is not as good as bi_biomass_2!
     },
 
@@ -332,7 +339,8 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
-                  subgroup = "bio-bio-fuel-fluid",
+	  allow_productivity = true,
+      subgroup = "bio-bio-fuel-fluid",
       order = "x[oil-processing]-z3[bi-biomass]" -- This recipe is more powerful than bi_biomass_3!
     },
 
@@ -386,6 +394,7 @@ if BI.Settings.BI_Bio_Fuel then
     enabled = false,
     always_show_made_in = true,
     allow_decomposition = false,
+	allow_productivity = true,
     energy_required = 5,
     ingredients = {
       {type = "fluid", name = "bi-biomass", amount = 10},
@@ -417,6 +426,7 @@ if BI.Settings.BI_Bio_Fuel then
     enabled = false,
     always_show_made_in = true,
     allow_decomposition = false,
+	allow_productivity = true,
     energy_required = 2.5,
     ingredients = {
       {type = "fluid", name = "bi-biomass", amount = 10},
@@ -453,6 +463,7 @@ if BI.Settings.BI_Bio_Fuel then
     enabled = false,
     always_show_made_in = true,
     allow_decomposition = false,
+	allow_productivity = true,
     energy_required = 10,
     ingredients = {
       {type = "item", name = "coal", amount = 20},
@@ -499,9 +510,10 @@ if BI.Settings.BI_Bio_Fuel then
       },
       main_product = "",
       enabled = false,
-                  allow_as_intermediate = false,    -- Changed for 0.18.34/1.1.4
+      allow_as_intermediate = false,    -- Changed for 0.18.34/1.1.4
       always_show_made_in = true,       -- Added for 0.18.34/1.1.4
       allow_decomposition = true,       -- Added for 0.18.34/1.1.4
+	  allow_productivity = true,
       crafting_machine_tint = {
         primary = {r = 0.970, g = 0.611, b = 0.000, a = 0.000}, -- #f79b0000
         secondary = {r = 0.000, g = 0.680, b = 0.894, a = 0.357}, -- #00ade45b
@@ -537,6 +549,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       crafting_machine_tint = {
         primary = {r = 0.875, g = 0.735, b = 0.000, a = 0.000}, -- #dfbb0000
         secondary = {r = 0.103, g = 0.940, b = 0.000, a = 0.000}, -- #1aef0000
@@ -571,6 +584,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "i1",
                 },
@@ -600,6 +614,7 @@ if BI.Settings.BI_Bio_Fuel then
       enabled = false,
       always_show_made_in = true,
       allow_decomposition = false,
+	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "i2",
     },

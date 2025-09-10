@@ -120,8 +120,6 @@ if BI.Settings.Bio_Cannon then
         {
             type = "ammo-turret",
             name = "bi-bio-cannon",
-            icon = ICONPATH_W .. "biocannon_icon.png",
-            icon_size = 64,
             icons = {{icon = ICONPATH_W .. "biocannon_icon.png", icon_size = 64}},
             flags = {"placeable-neutral", "placeable-player", "player-creation"},
             -- makes cannon blueprintable

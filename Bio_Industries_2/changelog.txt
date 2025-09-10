@@ -1,8 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.17
+Date: 10.09.2025
+  Changes:
+    - More Updates to Bob's Compatibility
+---------------------------------------------------------------------------------------------------
+Version: 2.0.16
+Date: 09.09.2025
+  Bug Fixes:
+    - Fixed missing fertilizer icon, attempt 2
+---------------------------------------------------------------------------------------------------
+Version: 2.0.15
+Date: 09.09.2025
+  Bug Fixes:
+    - Fixed missing icon "Bio_Industries_2/graphics/icons/fluid_advanced_fertilizer_recipe_64.png not found"
+---------------------------------------------------------------------------------------------------
+Version: 2.0.14
+Date: 09.09.2025
+  Bug Fixes:
+    - Fixed missing 'liquid-air'  in not playing with Bob's
+---------------------------------------------------------------------------------------------------
 Version: 2.0.13
 Date: 09.09.2025
   Changes:
-
     - Updated Rail to remove Decorative when placed
     - Updated Bob's Compatibility
 ---------------------------------------------------------------------------------------------------

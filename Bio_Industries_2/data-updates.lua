@@ -22,6 +22,7 @@ local ICONPATH = "__Bio_Industries_2__/graphics/icons/"
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ICONPATH_PY = "__Bio_Industries_2__/graphics/icons/mod_py/"
+local ICONPATH_BA = BioInd.modRoot .. "/graphics/icons/mod_bobangels/"
 
 ----Update the Wood Pipe Images
 require("prototypes.Wood_Products.pipes")
@@ -427,7 +428,7 @@ end
 
 -- We only want to create nitrogen if it doesn't exist yet. We then also need to create
 -- liquid air.
---[[ Removing this for now
+
 if not data.raw.fluid["nitrogen"] then
     data:extend({
         {
@@ -510,7 +511,7 @@ else
     BioInd.writeDebug("Removed recipes for \"nitrogen\" and \"liquid air\".")
 end
 
-]]
+
 
 
  -- Replace nitrogen (BI) with bob-nitrogen (Bob's) in recipe "bi-nitrogen"
@@ -552,20 +553,20 @@ end
 -- Replace bob-fertiliser (Bob's) with fertilizer (BI) in recipe "bob-fertiliser"
 if data.raw["item"]["bob-greenhouse"] then
  
-		data.raw["item"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
-		data.raw["item"]["bob-fertiliser"].icon_size = 64
-		data.raw["recipe"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
-		data.raw["recipe"]["bob-fertiliser"].icon_size = 64
+	data.raw["item"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
+	data.raw["item"]["bob-fertiliser"].icon_size = 64
+	data.raw["recipe"]["bob-fertiliser"].icon = ICONPATH .. "fertilizer.png"
+	data.raw["recipe"]["bob-fertiliser"].icon_size = 64
 		
-	  thxbob.lib.recipe.remove_result("bob-fertiliser", "bob-fertiliser")
-	  thxbob.lib.recipe.add_result("bob-fertiliser", {
+	thxbob.lib.recipe.remove_result("bob-fertiliser", "bob-fertiliser")
+	thxbob.lib.recipe.add_result("bob-fertiliser", {
 		type = "item",
 		name = "fertilizer",
 		amount = 1
-	  })
+	})
 
 
-      thxbob.lib.recipe.replace_ingredient("bob-advanced-greenhouse-cycle", "bob-fertiliser", "fertilizer")
+    thxbob.lib.recipe.replace_ingredient("bob-advanced-greenhouse-cycle", "bob-fertiliser", "fertilizer")
 
     data.raw["item"]["bob-fertiliser"].place_as_tile = {
         result = BioInd.AB_tiles() and "vegetation-green-grass-3" or "grass-3",
@@ -602,36 +603,50 @@ end
 if data.raw.item["bob-resin"] then
 	 
 	  --data.raw.item["bob-resin"] = nil -- Remove Bob's resin
+
+	if data.raw.recipe["bob-resin-wood"] then
 	  thxbob.lib.recipe.remove_result("bob-resin-wood", "bob-resin")
 	  thxbob.lib.recipe.add_result("bob-resin-wood", {
 		type = "item",
 		name = "resin",
 		amount = 1
 	  })
-
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-wood'")
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-wood'") 
+	end  
 	
-end
-
-if data.raw.recipe["bob-resin-oil"] then
-	 
-	 thxbob.lib.recipe.remove_result("bob-resin-oil", "bob-resin")
-	 thxbob.lib.recipe.add_result("bob-resin-oil", {
-	  type = "item",
-	  name = "resin",
-	  amount = 2
+	if data.raw.recipe["bob-resin-oil"] then
+	  thxbob.lib.recipe.remove_result("bob-resin-oil", "bob-resin")
+	  thxbob.lib.recipe.add_result("bob-resin-oil", {
+		type = "item",
+		name = "resin",
+		amount = 1
 	  })
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-oil'")   
+	end  
 
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-oil'")
+	if data.raw.recipe["bob-rubber"] then
+	   data.raw.recipe["bob-rubber"].icon = ICONPATH_BA .. "rubber.png"
+	   data.raw.recipe["bob-rubber"].icon_size = 32
+	  thxbob.lib.recipe.remove_result("bob-rubber", "bob-resin")
+	  thxbob.lib.recipe.add_result("bob-rubber", {
+		type = "item",
+		name = "resin",
+		amount = 1
+	  })
+	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-rubber'")  
+	end  
 	
-end
+	if data.raw.recipe["bob-phenolic-board"] then
+		thxbob.lib.recipe.replace_ingredient("bob-phenolic-board", "bob-resin", "resin")  
+		BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-phenolic-board'")   
+	end  
 
-if data.raw.recipe["bob-rubber"] then
-	 
-	thxbob.lib.recipe.replace_ingredient("bob-rubber", "bob-resin", "resin")
-
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-rubber'")
+	if data.raw.recipe["bob-solder"] then
+		thxbob.lib.recipe.replace_ingredient("bob-solder", "bob-resin", "resin")  
+		BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-solder'")   
+	end  
 	
+
 end
 
 --- Updaet seeds to work with Space Age if present.

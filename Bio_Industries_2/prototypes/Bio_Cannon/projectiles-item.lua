@@ -12,12 +12,6 @@ if BI.Settings.Bio_Cannon then
       name = "bi-bio-cannon-proto-ammo",
       icon = ICONPATH_W .. "bio_cannon_proto_ammo_icon.png",
       icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_W .. "bio_cannon_proto_ammo_icon.png",
-          icon_size = 64,
-        }
-      },
       ammo_category = "Bio_Cannon_Ammo",
       ammo_type = {
         category = "Bio_Cannon_Ammo",

@@ -84,7 +84,19 @@ if not data.raw.item["resin"] then
       },
       subgroup = "bio-bio-farm-raw",
       order = "a[bi]-a-bb[bi-resin]",
-      stack_size = 200
+      stack_size = 200,
+	  drop_sound = {
+      filename = "__base__/sound/item/solid-fuel-inventory-move.ogg",
+      volume = 0.7,
+		},
+	  inventory_move_sound = {
+      filename = "__base__/sound/item/solid-fuel-inventory-move.ogg",
+      volume = 0.7,
+		},
+      pick_sound = {
+      filename = "__base__/sound/item/solid-fuel-inventory-pickup.ogg",
+      volume = 0.7,
+		},
     },
 
     --- Resin recipe - Wood
@@ -236,8 +248,8 @@ end
 
 
 --- Make Bio Farm use glass if Bob's
-if data.raw.item.glass  then
-  thxbob.lib.recipe.replace_ingredient("bi-bio-farm", "copper-cable", "glass")
+if data.raw.item["bob-glass"] then
+  thxbob.lib.recipe.replace_ingredient("bi-bio-farm", "copper-cable", "bob-glass")
 end
 
 
@@ -311,7 +323,7 @@ end
 
 
 --- Alternative Wooden-Board Recipe for Bob's Electronics
-if data.raw.item["wooden-board"] and mods["bobelectronics"] then
+if data.raw.item["bob-wooden-board"] and mods["bobelectronics"] then
   data:extend({
     -- Wood - Press Wood
     {
@@ -334,12 +346,13 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
       always_show_made_in = true,
       allow_decomposition = false,
       allow_as_intermediate = false,
+	  allow_productivity = true,
       ingredients = {
         {type = "item", name = "bi-woodpulp", amount = 3},
         {type = "item", name = "resin", amount = 1},
       },
       results = {
-        {type = "item", name = "wooden-board", amount = 6}
+        {type = "item", name = "bob-wooden-board", amount = 6}
       },
       -- This is a custom property for use by "Krastorio 2" (it will change
       -- ingredients/results; used for wood/wood pulp)

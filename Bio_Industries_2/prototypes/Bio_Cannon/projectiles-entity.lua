@@ -281,32 +281,24 @@ if BI.Settings.Bio_Cannon then
 
     --- Bio Cannon Explosion
     {
-      type = "smoke-with-trigger",
-      name = "bio-cannon-explosion",
-      flags = {"not-on-map"},
-      show_when_smoke_off = true,
-      animation = {
-        filename = ICONPATH .. "explosion.png",
-        priority = "low",
-        width = 256,
-        height = 128,
-        frame_count = 12,
-        animation_speed = 0.2,
-        line_length = 3,
-        scale = 2,
-      },
-      sound = {
-      {
-        filename = "__Bio_Industries_2__/sound/boom.ogg",
-        volume = 4.0
-      },
-      },
-      slow_down_factor = 0,
-      affected_by_wind = false,
-      cyclic = false,
-      duration = 60 * 5,
-      spread_duration = 10,
-    },
+	  type = "explosion",
+	  name = "bio-cannon-explosion",
+	  flags = {"not-on-map"},
+	  animations = {{
+		filename = ICONPATH .. "explosion.png",
+		priority = "low",
+		width = 256,
+		height = 128,
+		frame_count = 12,
+		animation_speed = 0.2,
+		line_length = 3,
+		scale = 2
+	  }},
+	  light = {intensity = 1, size = 30},
+	  sound = {
+		variations = {{filename = "__Bio_Industries_2__/sound/boom.ogg", volume = 1.0}}
+	  }
+	},
 
     --- Napalm Small
     {
