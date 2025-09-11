@@ -324,7 +324,15 @@ if mods["Krastorio2"] or mods["Krastorio2-spaced-out"] then
         for _, item in pairs(items) do
             for _, updateItem in pairs(update) do
                 if item.name == updateItem then
-                    item.amount = item.amount * 4
+                    if item.amount then
+                        item.amount = item.amount * 4
+                    end
+                    if item.amount_min then
+                        item.amount_min = item.amount_min * 4
+                    end
+                    if item.amount_max then
+                        item.amount_max = item.amount_max * 4
+                    end
                 end
             end
         end
