@@ -8,7 +8,7 @@ local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
 
 require("util")
-require("prototypes.Bio_Fuel.pipeConnectors")
+--require("prototypes.Bio_Fuel.pipeConnectors")
 
 
 -- Changed for 0.18.29: We always want to make advanced fertilizer, so we need to
@@ -246,21 +246,16 @@ if BI.Settings.BI_Bio_Fuel then
             name = "bi-bio-boiler",
             localised_name = { "entity-name.bi-bio-boiler" },
             localised_description = { "entity-description.bi-bio-boiler" },
-            icon = ICONPATH_E .. "bio_boiler.png",
-            icon_size = 64,
-            icons = {
-                {
-                    icon = ICONPATH_E .. "bio_boiler.png",
-                    icon_size = 64,
-                }
-            },
+            icons = { {icon = ICONPATH_E .. "bio_boiler.png", icon_size = 64,} },
             -- This is necessary for "Space Exploration" (if not true, the entity can only be
             -- placed on Nauvis)!
             se_allow_in_space = true,
             flags = { "placeable-neutral", "player-creation" },
             minable = { hardness = 0.2, mining_time = 0.5, result = "bi-bio-boiler" },
             max_health = 300,
-            corpse = "small-remnants",
+			corpse = "boiler-remnants",
+			dying_explosion = "boiler-explosion",
+			impact_category = "metal-large",
             mode = "output-to-separate-pipe",
             resistances = {
                 {

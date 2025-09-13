@@ -9,15 +9,8 @@ data:extend({
   {
     type = "ammo",
     name = "bi-dart-magazine-basic",
-    icon = ICONPATH_W .. "basic_dart_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "basic_dart_icon.png",
-        icon_size = 64,
-      }
-    },
-   ammo_category = "Bio_Turret_Ammo",
+    icons = { { icon = ICONPATH_W .. "basic_dart_icon.png", icon_size = 64, } },
+    ammo_category = "Bio_Turret_Ammo",
     ammo_type = {
       category = "Bio_Turret_Ammo",
       action = {
@@ -51,14 +44,7 @@ data:extend({
   {
     type = "ammo",
     name = "bi-dart-magazine-standard",
-    icon = ICONPATH_W .. "standard_dart_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "standard_dart_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { { icon = ICONPATH_W .. "standard_dart_icon.png", icon_size = 64, } },
     ammo_category = "Bio_Turret_Ammo",
     ammo_type = {
       category = "Bio_Turret_Ammo",
@@ -98,14 +84,7 @@ data:extend({
   {
     type = "ammo",
     name = "bi-dart-magazine-enhanced",
-    icon = ICONPATH_W .. "enhanced_dart_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "enhanced_dart_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { { icon = ICONPATH_W .. "enhanced_dart_icon.png", icon_size = 64, } },
     ammo_category = "Bio_Turret_Ammo",
     ammo_type = {
       category = "Bio_Turret_Ammo",
@@ -149,14 +128,7 @@ data:extend({
   {
     type = "ammo",
     name = "bi-dart-magazine-poison",
-    icon = ICONPATH_W .. "poison_dart_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "poison_dart_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { { icon = ICONPATH_W .. "poison_dart_icon.png", icon_size = 64, } },
     ammo_category = "Bio_Turret_Ammo",
     ammo_type = {
       category = "Bio_Turret_Ammo",
@@ -231,14 +203,7 @@ data:extend({
   {
     type = "ammo-turret",
     name = "bi-dart-turret",
-    icon = ICONPATH_W .. "bio_turret_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "bio_turret_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { { icon = ICONPATH_W .. "bio_turret_icon.png", icon_size = 64, } },
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.25, result = "bi-dart-turret"},
     max_health = 300,
@@ -252,13 +217,11 @@ data:extend({
     inventory_size = 1,
     automated_ammo_count = 14,
     attacking_speed = 1, -- makes nothing, it's animation's parameter
-
     folded_animation = turret_pic{direction_count = 8, line_length = 1},
     preparing_animation = turret_pic{direction_count = 8, line_length = 1},
     prepared_animation = turret_pic{},
     attacking_animation = turret_pic{},
     folding_animation = turret_pic{direction_count = 8, line_length = 1, run_mode = "backward"},
-
     -- darkfrei: wood impact sound for woods!
     impact_category = "wood",
     attack_parameters = {
@@ -267,7 +230,6 @@ data:extend({
       cooldown = 3.6,  -- cooldown = 6 -- darkfrei: means cooldown 6/60 sec or 10 shoots at second; = 60 is one shoot/sec
       projectile_creation_distance = 1.41,
       projectile_center = {-0.0625, 0.55},
-
       range = 20,
       sound = {
         filename = "__Bio_Industries_2__/sound/dart-turret.ogg",
@@ -321,14 +283,7 @@ data:extend({
   {
     type = "gun",
     name = "bi-dart-rifle",
-    icon = ICONPATH_W .. "bi_dart_rifle_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_W .. "bi_dart_rifle_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { { icon = ICONPATH_W .. "bi_dart_rifle_icon.png", icon_size = 64, } },
     subgroup = "gun",
     order = "a[basic-clips]-ab[submachine-gun]",
     attack_parameters = {

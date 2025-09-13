@@ -10,7 +10,6 @@ local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local WOODPATH = BioInd.modRoot .. "/graphics/entities/wood_products/"
 local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
-
 local SNDPATH = "__base__/sound/"
 local sounds = {}
 sounds.open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" }
@@ -39,14 +38,7 @@ data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-large",
-    icon = ICONPATH_E .. "large_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "large_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "large_wooden_chest_icon.png", icon_size = 64, } },
     -- This is necessary for "Space Exploration" (if not true, the entity can only be
     -- placed on Nauvis)!
     se_allow_in_space = true,
@@ -128,14 +120,7 @@ data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-huge",
-    icon = ICONPATH_E .. "huge_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "huge_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "huge_wooden_chest_icon.png", icon_size = 64, } },
     scale_info_icons = true,
     -- This is necessary for "Space Exploration" (if not true, the entity can only be
     -- placed on Nauvis)!
@@ -150,7 +135,7 @@ data:extend({
     inventory_size = 432, --144
     open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
-        impact_category = "wood",
+    impact_category = "wood",
     picture = {
 	layers = {
 	{
@@ -218,14 +203,7 @@ data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-giga",
-    icon = ICONPATH_E .. "giga_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "giga_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "giga_wooden_chest_icon.png", icon_size = 64, } },
     scale_info_icons = true,
     -- This is necessary for "Space Exploration" (if not true, the entity can only be
     -- placed on Nauvis)!
@@ -240,7 +218,7 @@ data:extend({
     inventory_size = 1728, --576
     open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
-        impact_category = "wood",
+    impact_category = "wood",
     picture = {
 	layers = {
 	{

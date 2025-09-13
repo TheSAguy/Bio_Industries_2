@@ -13,14 +13,7 @@ if BI.Settings.BI_Solar_Additions then
       name = "bi-bio-solar-farm",
       localised_name = {"entity-name.bi-bio-solar-farm"},
       localised_description = {"entity-description.bi-bio-solar-farm"},
-      icon = ICONPATH_E .. "bio_Solar_Farm_Icon.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "bio_Solar_Farm_Icon.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "bio_Solar_Farm_Icon.png", icon_size = 64, } },
       enabled = false,
       energy_required = 60,
       ingredients = {
@@ -41,16 +34,9 @@ if BI.Settings.BI_Solar_Additions then
     {
       type = "recipe",
       name = "bi-solar-boiler-hidden-panel",
-            localised_name = {"entity-name.bi-solar-boiler"},
+      localised_name = {"entity-name.bi-solar-boiler"},
       localised_description = {"entity-description.bi-solar-boiler"},
-      icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "bio_Solar_Boiler_Icon.png", icon_size = 64, } },
       enabled = false,
       energy_required = 15,
       ingredients = {
@@ -73,14 +59,7 @@ if BI.Settings.BI_Solar_Additions then
       name = "bi-solar-mat",
       localised_name = {"entity-name.bi-solar-mat"},
       localised_description = {"entity-description.bi-solar-mat"},
-      icon = ICONPATH_E .. "solar-mat.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "solar-mat.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "solar-mat.png", icon_size = 64, } },
       enabled = false,
       energy_required = 5,
       ingredients = {
@@ -103,14 +82,7 @@ if BI.Settings.BI_Solar_Additions then
       name = "bi-bio-accumulator",
       localised_name = {"entity-name.bi-bio-accumulator"},
       localised_description = {"entity-description.bi-bio-accumulator"},
-      icon = ICONPATH_E .. "bi_LargeAccumulator.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "bi_LargeAccumulator.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "bi_LargeAccumulator.png", icon_size = 64, } },
       energy_required = 60,
       enabled = false,
       ingredients = {
@@ -120,9 +92,9 @@ if BI.Settings.BI_Solar_Additions then
       },
       results = {{type="item", name="bi-bio-accumulator", amount=1}},
       main_product = "",
-                  subgroup = "energy",
+      subgroup = "energy",
       order = "e[accumulator]-a[bi-accumulator]",
-                  allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
+      allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
       always_show_made_in = false,      -- Changed for 0.18.34/1.1.4
       allow_decomposition = true,       -- Changed for 0.18.34/1.1.4
     },
@@ -130,17 +102,10 @@ if BI.Settings.BI_Solar_Additions then
     -- Large Substation
     {
       type = "recipe",
-            name = "bi-large-substation",
+      name = "bi-large-substation",
       localised_name = {"entity-name.bi-large-substation"},
       localised_description = {"entity-description.bi-large-substation"},
-      icon = ICONPATH_E .. "bi_LargeSubstation_icon.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "bi_LargeSubstation_icon.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "bi_LargeSubstation_icon.png", icon_size = 64, } },
       enabled = false,
       ingredients = {
         {type="item", name="steel-plate", amount=10},

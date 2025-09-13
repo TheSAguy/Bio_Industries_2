@@ -20,14 +20,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
     {
     type = "rail-planner",
     name = "bi-rail-wood",
-	icon = ICONPATH_E .. "rail-wood.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "rail-wood.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "rail-wood.png", icon_size = 64, } },
     localised_name = {"item-name.bi-rail-wood"},
     subgroup = "train-transport",
     order = "a[rail]-0[rail]",
@@ -50,14 +43,7 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 	   {
 		type = "recipe",
 		name = "bi-rail-wood-to-concrete",
-		icon = ICONPATH_E .. "rail-wood-to-concrete.png",
-		icon_size = 64,
-		icons = {
-		  {
-			icon = ICONPATH_E .. "rail-wood-to-concrete.png",
-			icon_size = 64,
-		  }
-		},
+		icons = { {icon = ICONPATH_E .. "rail-wood-to-concrete.png", icon_size = 64, } },
 	  enabled = false,
 		  ingredients =
 		{

@@ -62,6 +62,7 @@ data:extend({
             sound = { { filename = "__Bio_Industries_2__/sound/rainforest_ambience.ogg", volume = 0.8 } },
             idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
             apparent_volume = 1.5,
+			max_sounds_per_type = 3,
         },
         crafting_categories = { "clean-air" },
         source_inventory_size = 1,
@@ -84,6 +85,7 @@ data:extend({
         -- won't be affected by beacons!
         allowed_effects = { "consumption", "speed" },
     },
+	
 	---- corpse
 	{
 	  type = "corpse",
@@ -201,6 +203,7 @@ data:extend({
             sound = { { filename = "__Bio_Industries_2__/sound/rainforest_ambience.ogg", volume = 1 } },
             idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.8 },
             apparent_volume = 1.5,
+			max_sounds_per_type = 3,
         },
         crafting_categories = { "clean-air" },
         source_inventory_size = 1,
@@ -224,6 +227,7 @@ data:extend({
         allowed_effects = { "consumption", "speed" },
     },
 	
+	--- corpse
 	{
   type = "corpse",
   name = "bi-bio-garden-large-remnant",
@@ -381,6 +385,7 @@ data:extend({
             sound = { { filename = "__Bio_Industries_2__/sound/rainforest_ambience.ogg", volume = 1.8 } },
             idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.9 },
             apparent_volume = 2,
+			max_sounds_per_type = 3,
         },
         crafting_categories = { "clean-air" },
         source_inventory_size = 1,

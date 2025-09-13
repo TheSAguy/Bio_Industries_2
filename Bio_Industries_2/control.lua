@@ -18,11 +18,8 @@ require("util")
 require("libs/util_ext")
 require("control_tree")
 require("control_arboretum")
+require("remote") -- milestones
 
-
----************** Used for Testing -----
---require ("Test_Spawn")
----*************
 
 
 local function Create_dummy_force()

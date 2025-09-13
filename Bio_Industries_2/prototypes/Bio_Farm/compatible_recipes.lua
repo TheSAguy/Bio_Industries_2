@@ -330,11 +330,11 @@ if data.raw.item["bob-wooden-board"] and mods["bobelectronics"] then
       type = "recipe",
       name = "bi-press-wood",
       localised_name = {"recipe-name.bi-press-wood"},
-      icon = ICONPATH_BA .. "bi_wooden_board.png",
+      icon = ICONPATH_BA .. "bi_wooden_board_shiny.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH_BA .. "bi_wooden_board.png",
+          icon = ICONPATH_BA .. "bi_wooden_board_shiny.png",
           icon_size = 64,
         }
       },
@@ -361,10 +361,7 @@ if data.raw.item["bob-wooden-board"] and mods["bobelectronics"] then
   })
   thxbob.lib.tech.add_recipe_unlock("electronics", "bi-press-wood")
 
-  if mods["ShinyBobGFX"] or mods["ShinyBobGFX_Continued"] then
-    data.raw["recipe"]["bi-press-wood"].icon = ICONPATH_BA .. "bi_wooden_board_shiny.png"
-    data.raw["recipe"]["bi-press-wood"].icon_size = 64
-  end
+
 end
 
 

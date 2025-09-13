@@ -16,14 +16,7 @@ data:extend({
     name = "bi-wooden-chest-large",
     localised_name = {"entity-name.bi-wooden-chest-large"},
     localised_description = {"entity-description.bi-wooden-chest-large"},
-    icon = ICONPATH_E .. "large_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "large_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "large_wooden_chest_icon.png", icon_size = 64, } },
     fuel_category = "chemical",
     fuel_value = "32MJ",
     subgroup = "storage",
@@ -38,14 +31,7 @@ data:extend({
     name = "bi-wooden-chest-huge",
     localised_name = {"entity-name.bi-wooden-chest-huge"},
     localised_description = {"entity-description.bi-wooden-chest-huge"},
-    icon = ICONPATH_E .. "huge_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "huge_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "huge_wooden_chest_icon.png", icon_size = 64, } },
     fuel_category = "chemical",
     fuel_value = "200MJ",
     subgroup = "storage",
@@ -60,14 +46,7 @@ data:extend({
     name = "bi-wooden-chest-giga",
     localised_name = {"entity-name.bi-wooden-chest-giga"},
     localised_description = {"entity-description.bi-wooden-chest-giga"},
-    icon = ICONPATH_E .. "giga_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "giga_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "giga_wooden_chest_icon.png", icon_size = 64, } },
     fuel_category = "chemical",
     fuel_value = "400MJ",
     subgroup = "storage",

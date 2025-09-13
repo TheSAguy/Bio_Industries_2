@@ -46,7 +46,6 @@ require("prototypes.Bio_Farm.item")
 require("prototypes.Bio_Farm.recipe")
 require("prototypes.Bio_Farm.liquids")
 require("prototypes.Bio_Farm.recipe-categories")
-require("prototypes.Bio_Farm.pipeConnectors")
 require("prototypes.Bio_Farm.technology")
 require("prototypes.Bio_Farm.tree_entities")
 

@@ -602,8 +602,6 @@ end
  -- Replace Bob's Resin with BI Resin
 if data.raw.item["bob-resin"] then
 	 
-	  --data.raw.item["bob-resin"] = nil -- Remove Bob's resin
-
 	if data.raw.recipe["bob-resin-wood"] then
 	  thxbob.lib.recipe.remove_result("bob-resin-wood", "bob-resin")
 	  thxbob.lib.recipe.add_result("bob-resin-wood", {
@@ -611,7 +609,7 @@ if data.raw.item["bob-resin"] then
 		name = "resin",
 		amount = 1
 	  })
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-wood'") 
+	  BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-wood'") 
 	end  
 	
 	if data.raw.recipe["bob-resin-oil"] then
@@ -621,19 +619,14 @@ if data.raw.item["bob-resin"] then
 		name = "resin",
 		amount = 1
 	  })
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-oil'")   
+	  BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-resin-oil'")   
 	end  
 
 	if data.raw.recipe["bob-rubber"] then
 	   data.raw.recipe["bob-rubber"].icon = ICONPATH_BA .. "rubber.png"
 	   data.raw.recipe["bob-rubber"].icon_size = 32
-	  thxbob.lib.recipe.remove_result("bob-rubber", "bob-resin")
-	  thxbob.lib.recipe.add_result("bob-rubber", {
-		type = "item",
-		name = "resin",
-		amount = 1
-	  })
-	BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-rubber'")  
+	   thxbob.lib.recipe.replace_ingredient("bob-rubber", "bob-resin", "resin")  
+	   BioInd.writeDebug("Replace Bob's Resin with BI Resin in Recipe 'bob-rubber'")  
 	end  
 	
 	if data.raw.recipe["bob-phenolic-board"] then

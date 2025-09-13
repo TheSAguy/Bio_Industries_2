@@ -4,8 +4,105 @@ local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 local ENTITYPATH_BIO = BioInd.modRoot .. "/graphics/entities/"
 local REMNANTSPATH = BioInd.modRoot .. "/graphics/entities/remnants/"
 
-require("prototypes.Bio_Farm.pipeConnectors")
+
 require("util")
+
+
+-- Pipes
+------------------------------------------------------------------------------------
+--                                    Bio farm                                    --
+------------------------------------------------------------------------------------
+
+function biofarmpipepictures()
+  return
+  {
+    north = {
+      filename = "__core__/graphics/empty.png",
+      priority = "low",
+      width = 1,
+      height = 1,
+    },
+    east =
+      {
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/bio_farm-pipe-E.png",
+        priority = "extra-high",
+        width = 42,
+        height = 76,
+        shift = util.by_pixel(-24.5, 1),
+        scale = 0.5
+      
+    },
+    south =
+      {
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/bio_farm-pipe-S.png",
+        priority = "extra-high",
+        width = 88,
+        height = 61,
+        shift = util.by_pixel(0, -31.25),
+        scale = 0.5
+      
+    },
+    west =
+    {
+        filename = ENTITYPATH_BIO .. "bio_farm/biofarm_pipes/bio_farm-pipe-W.png",
+        priority = "extra-high",
+        width = 39,
+        height = 73,
+        shift = util.by_pixel(25.75, 1.25),
+        scale = 0.5
+      
+    }
+  }
+end
+
+------------------------------------------------------------------------------------
+--                                    Bio Greenhouse                               --
+------------------------------------------------------------------------------------
+
+function biogreenhousepipepictures()
+  return
+  {
+    north = {
+            filename = ENTITYPATH_BIO .. "bio_greenhouse/biogreenhouse_pipes/assembling-machine-3-pipe-N-exp.png",
+            priority = "extra-high",
+            width = 171,
+            height = 152,
+            shift = util.by_pixel(2.25, 13.5),
+            scale = 0.5
+    },
+    east =
+      {
+            filename = ENTITYPATH_BIO .. "bio_greenhouse/biogreenhouse_pipes/assembling-machine-3-pipe-E.png",
+            priority = "extra-high",
+            width = 42,
+            height = 76,
+            shift = util.by_pixel(-24.5, 1),
+            scale = 0.5
+      
+    },
+    south =
+      {
+            filename = ENTITYPATH_BIO .. "bio_greenhouse/biogreenhouse_pipes/assembling-machine-3-pipe-S.png",
+            priority = "extra-high",
+            width = 88,
+            height = 61,
+            shift = util.by_pixel(0, -31.25),
+            scale = 0.5
+      
+    },
+    west =
+    {
+            filename = ENTITYPATH_BIO .. "bio_greenhouse/biogreenhouse_pipes/assembling-machine-3-pipe-W.png",
+            priority = "extra-high",
+            width = 39,
+            height = 73,
+            shift = util.by_pixel(25.75, 1.25),
+            scale = 0.5
+      
+    }
+  }
+end
+
 
 
 inv_extension2 = {
@@ -146,24 +243,17 @@ data:extend({
     {
         type = "assembling-machine",
         name = "bi-bio-farm",
-        icon = ICONPATH_E .. "bio_Farm_Icon.png",
-        icon_size = 64,
-        icons = {
-            {
-                icon = ICONPATH_E .. "bio_Farm_Icon.png",
-                icon_size = 64,
-            }
-        },
+        icons = {{ icon = ICONPATH_E .. "bio_Farm_Icon.png", icon_size = 64, }},
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
         minable = { hardness = 0.2, mining_time = 0.5, result = "bi-bio-farm" },
-        max_health = 250,
+        max_health = 350,
         corpse = "bi-bio-farm-remnant",
         dying_explosion = "medium-explosion",
         resistances = { { type = "fire", percent = 70 } },
         fluid_boxes = {
             {
                 production_type = "input",
-                pipe_picture = assembler3pipepictures(),
+                pipe_picture = biofarmpipepictures(),
                 pipe_covers = pipecoverspictures(),
                 volume = 1000,
                 base_level = -1,
@@ -171,7 +261,7 @@ data:extend({
             },
             {
                 production_type = "input",
-                pipe_picture = assembler3pipepictures(),
+                pipe_picture = biofarmpipepictures(),
                 pipe_covers = pipecoverspictures(),
                 volume = 1000,
                 base_level = -1,
@@ -179,10 +269,8 @@ data:extend({
             },
         },
         fluid_boxes_off_when_no_fluid_recipe = true,
-
         collision_box = { { -4.2, -4.2 }, { 4.2, 4.2 } },
         selection_box = { { -4.5, -4.5 }, { 4.5, 4.5 } },
-
 		graphics_set = {
 			animation = {
 				layers = {
@@ -209,8 +297,9 @@ data:extend({
 			},
 			working_visualisations = {
 				{
-					light = { intensity = 1.2, size = 9 },
+					light = { intensity = 1.4, size = 10 },
 					effect = "flicker",
+					apply_recipe_tint = "primary",
 					constant_speed = true,
 					fadeout = true,
 					animation = {
@@ -226,7 +315,6 @@ data:extend({
 				}
 			}
 		},
-
         crafting_categories = { "biofarm-mod-farm" },
         crafting_speed = 1,
         energy_source = {
@@ -290,14 +378,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "bi-bio-greenhouse",
-        icon = ICONPATH_E .. "bio_greenhouse.png",
-        icon_size = 64,
-        icons = {
-            {
-                icon = ICONPATH_E .. "bio_greenhouse.png",
-                icon_size = 64,
-            }
-        },
+        icons = { { icon = ICONPATH_E .. "bio_greenhouse.png", icon_size = 64, } },
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
         minable = { hardness = 0.2, mining_time = 0.25, result = "bi-bio-greenhouse" },
         collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
@@ -324,7 +405,7 @@ data:extend({
         fluid_boxes = {
             {
                 production_type = "input",
-                pipe_picture = assembler3pipepictures(),
+                pipe_picture = biogreenhousepipepictures(),
                 pipe_covers = pipecoverspictures(),
                 volume = 1000,
                 base_level = -1,
@@ -358,6 +439,9 @@ data:extend({
 			working_visualisations = {
 				{
 					light = { intensity = 1, size = 6 },
+					draw_as_light = true,
+					effect = "flicker",
+					apply_recipe_tint = "primary",
 					animation = {
 						filename = ENTITYPATH_BIO .. "bio_greenhouse/bio_greenhouse_light_anim.png",
 						width = 192,
@@ -366,7 +450,6 @@ data:extend({
 						scale = 0.5,
 						animation_speed = 0.1,
 						shift = { 0, -0.5 },
-						draw_as_light = true
 					}
 				}
 			}
@@ -413,14 +496,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "bi-cokery",
-        icon = ICONPATH_E .. "cokery.png",
-        icon_size = 64,
-        icons = {
-            {
-                icon = ICONPATH_E .. "cokery.png",
-                icon_size = 64,
-            }
-        },
+        icons = { { icon = ICONPATH_E .. "cokery.png", icon_size = 64, } },
         -- This is necessary for "Space Exploration" (if not true, the entity can only be
         -- placed on Nauvis)!
         se_allow_in_space = true,
@@ -435,33 +511,6 @@ data:extend({
         module_specification = { module_slots = 2 },
         allowed_effects = { "consumption", "speed", "pollution" },
 		graphics_set = {
-			-- Idle animation (1 frame)
-			--[[
-			idle_animation = {
-				layers = {
-					{
-						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_idle.png",
-						priority = "high",
-						width = 256,
-						height = 256,
-						frame_count = 1,
-						repeat_count = 16, -- match working animation
-						shift = { 0.5, -0.5 },
-						scale = 0.5
-					},
-					{
-						filename = ENTITYPATH_BIO .. "bio_cokery/cokery_shadow.png",
-						width = 334,
-						height = 126,
-						frame_count = 1,
-						repeat_count = 16, -- match working animation
-						draw_as_shadow = true,
-						shift = { 1.5, -0.5 },
-						scale = 0.5
-					}
-				}
-			},
-		]]
 			-- Working animation (16 frames)
 			animation = {
 				layers = {
@@ -940,14 +989,7 @@ data:extend({
         name = "bi-arboretum-area",
         localised_name = { "entity-name.bi-arboretum" },
         localised_description = { "entity-description.bi-arboretum" },
-        icon = ICONPATH_E .. "arboretum_Icon.png",
-        icon_size = 64,
-        icons = {
-            {
-                icon = ICONPATH_E .. "arboretum_Icon.png",
-                icon_size = 64,
-            }
-        },
+        icons = { { icon = ICONPATH_E .. "arboretum_Icon.png", icon_size = 64, }},
         flags = { "not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable" },
         open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
         close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
@@ -991,14 +1033,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "bi-arboretum",
-        icon = ICONPATH_E .. "arboretum_Icon.png",
-        icon_size = 64,
-        icons = {
-            {
-                icon = ICONPATH_E .. "arboretum_Icon.png",
-                icon_size = 64,
-            }
-        },
+		icons = { { icon = ICONPATH_E .. "arboretum_Icon.png", icon_size = 64, }},
         flags = { "placeable-neutral", "placeable-player", "player-creation" },
         placeable_by = { item = "bi-arboretum-area", count = 1 }, -- Fixes that entity couldn't be blueprinted
         minable = { hardness = 0.2, mining_time = 0.5, result = "bi-arboretum-area" },
@@ -1009,7 +1044,7 @@ data:extend({
         fluid_boxes = {
             {
                 production_type = "input",
-                pipe_picture = assembler3pipepictures(),
+                --pipe_picture = assembler3pipepictures(),
                 pipe_covers = pipecoverspictures(),
                 volume = 1000,
                 base_level = -1,
@@ -1017,7 +1052,7 @@ data:extend({
             },
             {
                 production_type = "input",
-                pipe_picture = assembler3pipepictures(),
+                --pipe_picture = assembler3pipepictures(),
                 pipe_covers = pipecoverspictures(),
                 volume = 1000,
                 base_level = -1,
@@ -1077,6 +1112,7 @@ data:extend({
         close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
         module_specification = {},
     },
+	
 	--- Corpse
 	{
 	  type = "corpse",

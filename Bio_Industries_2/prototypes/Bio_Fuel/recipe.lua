@@ -6,6 +6,7 @@ local ICONPATH_E = BioInd.modRoot .. "/graphics/icons/entity/"
 -- Changed for 0.18.29: We always want to make advanced fertilizer, so we need to
 -- unlock the bio-reactor and the most basic recipe for algae biomass even if
 -- BI.Settings.BI_Bio_Fuel has been turned off!
+
 data:extend({
   -- BIO Reactor (ENTITY)--
   {
@@ -13,14 +14,7 @@ data:extend({
     name = "bi-bio-reactor",
     localised_name = {"entity-name.bi-bio-reactor"},
     localised_description = {"entity-description.bi-bio-reactor"},
-    icon = ICONPATH_E .. "bioreactor.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "bioreactor.png",
-        icon_size = 64,
-      }
-    },
+    icons = { {icon = ICONPATH_E .. "bioreactor.png", icon_size = 64, } },
       enabled = false,
       energy_required = 20,
       ingredients = {
@@ -36,20 +30,14 @@ data:extend({
     subgroup = "bio-bio-fuel-fluid",
     order = "a",
   },
+  
   -- BIOMASS 1 --
   {
     type = "recipe",
     name = "bi-biomass-1",
     localised_name = {"recipe-name.bi-biomass-1"},
     localised_description = {"recipe-description.bi-biomass-1"},
-    icon = ICONPATH .. "biomass_1.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "biomass_1.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "biomass_1.png", icon_size = 64, } },
     category = "biofarm-mod-bioreactor",
     energy_required = 10,
     ingredients = {
@@ -77,14 +65,7 @@ if BI.Settings.BI_Bio_Fuel then
     {
       type = "recipe",
       name = "bi-basic-gas-processing",
-      icon = ICONPATH .. "bi_basic_gas_processing.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "bi_basic_gas_processing.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "bi_basic_gas_processing.png", icon_size = 64, } },
       category = "chemistry",
       enabled = false,
       energy_required = 5,
@@ -112,14 +93,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-bio-boiler",
       localised_name = {"entity-name.bi-bio-boiler"},
       localised_description = {"entity-description.bi-bio-boiler"},
-      icon = ICONPATH_E .. "bio_boiler.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH_E .. "bio_boiler.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH_E .. "bio_boiler.png", icon_size = 64, } },
         enabled = false,
         energy_required = 10,
         ingredients = {
@@ -143,14 +117,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-cellulose-1",
       localised_name = {"recipe-name.bi-cellulose-1"},
       localised_description = {"recipe-description.bi-cellulose-1"},
-      icon = ICONPATH .. "cellulose.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "cellulose.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "cellulose.png", icon_size = 64, } },      
       category = "chemistry",
       energy_required = 20,
       ingredients = {
@@ -175,14 +142,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-cellulose-2",
       localised_name = {"recipe-name.bi-cellulose-2"},
       localised_description = {"recipe-description.bi-cellulose-2"},
-      icon = ICONPATH .. "cellulose_2.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "cellulose_2.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "cellulose_2.png", icon_size = 64, } },      
       category = "chemistry",
       energy_required = 5,
       ingredients = {
@@ -211,23 +171,12 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-plastic-1",
       localised_name = {"recipe-name.bi-plastic-1"},
       localised_description = {"recipe-description.bi-plastic-1"},
-      icon = ICONPATH .. "plastic_bar_1.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "plastic_bar_1.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "plastic_bar_1.png", icon_size = 64, } },      
       category = "chemistry",
-      --subgroup = "raw-material",
       energy_required = 1,
       ingredients = {
         {type = "fluid", name = "steam", amount = 10},
-        -- Let's use woodpulp instead of wood for the new version! Not changing this
-        -- for 0.18.34/1.1.4  to avoid an additional (potentially factory-breaking)
-        -- change shortly before the new release will change so many things anyway!
-        {type = "item", name = "wood", amount = 10},
+        {type = "item", name = "bi-woodpulp", amount = 20},
                 {type = "fluid", name = "light-oil", amount = 20},
       },
       results = {
@@ -240,7 +189,7 @@ if BI.Settings.BI_Bio_Fuel then
 	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "g[plastic-bar-1]",
-                  -- This is a custom property for use by "Krastorio 2" (it will change
+      -- This is a custom property for use by "Krastorio 2" (it will change
       -- ingredients/results; used for wood/wood pulp)
       mod = "Bio_Industries_2",
     },
@@ -251,14 +200,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-plastic-2",
       localised_name = {"recipe-name.bi-plastic-2"},
       localised_description = {"recipe-description.bi-plastic-2"},
-      icon = ICONPATH .. "plastic_bar_2.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "plastic_bar_2.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "plastic_bar_2.png", icon_size = 64, } }, 
       category = "chemistry",
       energy_required = 1,
       ingredients = {
@@ -283,14 +225,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-biomass-2",
       localised_name = {"recipe-name.bi-biomass-2"},
       localised_description = {"recipe-description.bi-biomass-2"},
-      icon = ICONPATH .. "biomass_2.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "biomass_2.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "biomass_2.png", icon_size = 64, } }, 
       category = "biofarm-mod-bioreactor",
       energy_required = 60,
       ingredients = {
@@ -316,14 +251,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-biomass-3",
       localised_name = {"recipe-name.bi-biomass-3"},
       localised_description = {"recipe-description.bi-biomass-3"},
-      icon = ICONPATH .. "biomass_3.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "biomass_3.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "biomass_3.png", icon_size = 64, } }, 
       category = "biofarm-mod-bioreactor",
       energy_required = 10,
       ingredients = {
@@ -350,14 +278,7 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-biomass-conversion-1",
     localised_name = {"recipe-name.bi-biomass-conversion-1"},
     localised_description = {"recipe-description.bi-biomass-conversion-1"},
-    icon = ICONPATH .. "bio_conversion_1.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "bio_conversion_1.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "bio_conversion_1.png", icon_size = 64, } }, 
     category = "oil-processing",
     enabled = false,
     always_show_made_in = true,
@@ -382,14 +303,7 @@ if BI.Settings.BI_Bio_Fuel then
     name = "bi-biomass-conversion-2",
     localised_name = {"recipe-name.bi-biomass-conversion-2"},
     localised_description = {"recipe-description.bi-biomass-conversion-2"},
-    icon = ICONPATH .. "bio_conversion_2.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "bio_conversion_2.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "bio_conversion_2.png", icon_size = 64, } }, 
     category = "oil-processing",
     enabled = false,
     always_show_made_in = true,
@@ -414,14 +328,7 @@ if BI.Settings.BI_Bio_Fuel then
     name = "bi-biomass-conversion-3",
     localised_name = {"recipe-name.bi-biomass-conversion-3"},
     localised_description = {"recipe-description.bi-biomass-conversion-3"},
-    icon = ICONPATH .. "bio_conversion_3.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "bio_conversion_3.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "bio_conversion_3.png", icon_size = 64, } }, 
     category = "oil-processing",
     enabled = false,
     always_show_made_in = true,
@@ -451,14 +358,7 @@ if BI.Settings.BI_Bio_Fuel then
     name = "bi-biomass-conversion-4",
     localised_name = {"recipe-name.bi-biomass-conversion-4"},
     localised_description = {"recipe-description.bi-biomass-conversion-4"},
-    icon = ICONPATH .. "bio_conversion_4.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "bio_conversion_4.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "bio_conversion_4.png", icon_size = 64, } }, 
     category = "oil-processing",
     enabled = false,
     always_show_made_in = true,
@@ -488,16 +388,7 @@ if BI.Settings.BI_Bio_Fuel then
     {
       type = "recipe",
       name = "bi-battery",
-      icon = ICONPATH .. "bio_battery.png",
-      icon_size = 64,
-      icon_mipmaps = 4,
-      icons = {
-        {
-          icon = ICONPATH .. "bio_battery.png",
-          icon_size = 64,
-          icon_mipmaps = 4,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "bio_battery.png", icon_size = 64, } }, 
       category = "chemistry",
       energy_required = 5,
       ingredients = {
@@ -527,14 +418,7 @@ if BI.Settings.BI_Bio_Fuel then
     {
       type = "recipe",
       name = "bi-acid",
-      icon = ICONPATH .. "bio_acid.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "bio_acid.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "bio_acid.png", icon_size = 64, } },     
       category = "chemistry",
       energy_required = 10,
       ingredients = {
@@ -557,20 +441,13 @@ if BI.Settings.BI_Bio_Fuel then
       },
       subgroup = "bio-bio-fuel-other",
       order = "a",
-                },
+    },
 
     -- Sulfuric acid to Sulfur --
     {
       type = "recipe",
       name = "bi-sulfur",
-      icon = ICONPATH .. "bio_sulfur.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "bio_sulfur.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "bio_sulfur.png", icon_size = 64, } },     
       category = "chemistry",
       energy_required = 10,
       ingredients = {
@@ -587,20 +464,13 @@ if BI.Settings.BI_Bio_Fuel then
 	  allow_productivity = true,
       subgroup = "bio-bio-fuel-solid",
       order = "i1",
-                },
+    },
 
     -- Sulfuric acid to Sulfur --IF ANGELS INSTALLED (More Expensice)
     {
       type = "recipe",
       name = "bi-sulfur-angels",
-      icon = ICONPATH .. "bio_sulfur.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "bio_sulfur.png",
-          icon_size = 64,
-        }
-      },
+	  icons = { {icon = ICONPATH .. "bio_sulfur.png", icon_size = 64, } },
       category = "chemistry",
       energy_required = 10,
       ingredients = {

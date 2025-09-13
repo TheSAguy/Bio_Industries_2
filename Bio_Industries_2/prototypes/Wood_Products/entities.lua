@@ -185,15 +185,15 @@ data:extend({
     type = "tile",
     name = "bi-wood-floor",
     needs_correction = false,
-        minable = {hardness = 0.2, mining_time = 0.25, result = "wood"},
+    minable = {hardness = 0.2, mining_time = 0.25, result = "wood"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
     collision_mask = { layers = { ground_tile = true } },
     walking_speed_modifier = 1.2,
     layer = 13,
     decorative_removal_probability = 1,
     variants = {
-      transition = tile_graphics.generic_masked_tile_transitions1,
-      main = {
+    transition = tile_graphics.generic_masked_tile_transitions1,
+    main = {
         {
           picture = WOODPATH .. "wood_floor/woodfloor.png",
           count = 4,
@@ -201,26 +201,26 @@ data:extend({
 		  scale = 0.5
         },
       },
-      inner_corner = {
+    inner_corner = {
         picture = WOODPATH .. "wood_floor/woodfloor_inner-corner.png",
         count = 4
       },
-      outer_corner = {
+    outer_corner = {
         picture = WOODPATH .. "wood_floor/woodfloor_outer-corner.png",
         count = 4,
 		scale = 0.5
       },
-      side = {
+    side = {
         picture = WOODPATH .. "wood_floor/woodfloor_side.png",
         count = 4,
 		scale = 0.5
       },
-      u_transition = {
+    u_transition = {
         picture = WOODPATH .. "wood_floor/woodfloor_u.png",
         count = 4,
 		scale = 0.5
       },
-      o_transition = {
+    o_transition = {
         picture = WOODPATH .. "wood_floor/hr_woodfloor_o.png",
         count = 1,
 		scale = 0.5
@@ -237,14 +237,7 @@ data:extend({
   {
     type = "electric-pole",
     name = "bi-wooden-pole-big",
-    icon = ICONPATH_E .. "big-wooden-pole.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "big-wooden-pole.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "big-wooden-pole.png", icon_size = 64, } },
     -- This is necessary for "Space Exploration" (if not true, the entity can only be
     -- placed on Nauvis)!
     se_allow_in_space = true,
@@ -328,7 +321,6 @@ data:extend({
 	  localised_name = {"entity-name.bi-wooden-pole-big-remnant"},
 	  icon = "__base__/graphics/icons/remnants.png",
 	  icon_size = 64,
-	  icon_mipmaps = 4,
 	  BI_add_icon = true,
 	  flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
 	  subgroup = "remnants",
@@ -362,14 +354,7 @@ data:extend({
   {
     type = "electric-pole",
     name = "bi-wooden-pole-huge",
-    icon = ICONPATH_E .. "huge-wooden-pole.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "huge-wooden-pole.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "huge-wooden-pole.png", icon_size = 64, } },
     -- This is necessary for "Space Exploration" (if not true, the entity can only be
     -- placed on Nauvis)!
     se_allow_in_space = true,
@@ -466,7 +451,6 @@ data:extend({
   localised_name = {"entity-name.bi-wooden-pole-huge-remnant"},
   icon = "__base__/graphics/icons/remnants.png",
   icon_size = 64,
-  icon_mipmaps = 4,
   BI_add_icon = true,
   flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
   subgroup = "remnants",
@@ -500,14 +484,7 @@ data:extend({
  {
     type = "wall",
     name = "bi-wooden-fence",
-    icon = ICONPATH_E .. "wooden-fence.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "wooden-fence.png",
-        icon_size = 64,
-      }
-    },
+    icons = { {icon = ICONPATH_E .. "wooden-fence.png", icon_size = 64, } },
     flags = {"placeable-neutral", "player-creation"},
     collision_box = {{-0.29, -0.09}, {0.29, 0.49}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -517,7 +494,7 @@ data:extend({
     repair_speed_modifier = 2,
     corpse = "wall-remnants",
     repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
-        impact_category = "wood",
+    impact_category = "wood",
     resistances = {
       {
         type = "physical",
@@ -810,14 +787,7 @@ data:extend({
  {
     type = "pipe",
     name = "bi-wood-pipe",
-    icon = ICONPATH_E .. "wood_pipe.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "wood_pipe.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "wood_pipe.png", icon_size = 64, } },
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.075, result = "bi-wood-pipe"},
     max_health = 100,
@@ -836,8 +806,8 @@ data:extend({
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box = {
-      volume = 100,
-      pipe_connections = {
+    volume = 100,
+    pipe_connections = {
         { direction = defines.direction.north, position = {0, 0} },
         { direction = defines.direction.east, position = {0, 0} },
         { direction = defines.direction.south, position = {0, 0} },
@@ -858,6 +828,7 @@ data:extend({
     horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
     vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
   },
+  
   ---- corpse
   {
   type = "corpse",

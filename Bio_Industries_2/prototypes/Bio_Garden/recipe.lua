@@ -12,14 +12,7 @@ data:extend({
     name = "bi-bio-garden",
     localised_name = {"entity-name.bi-bio-garden"},
     localised_description = {"entity-description.bi-bio-garden"},
-    icon = ICONPATH_E .. "bio_garden_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "bio_garden_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "bio_garden_icon.png", icon_size = 64, } },
     enabled = false,
     energy_required = 10,
     ingredients = {
@@ -44,14 +37,7 @@ data:extend({
     name = "bi-bio-garden-lagre",
     localised_name = {"entity-name.bi-bio-garden-lagre"},
     localised_description = {"entity-description.bi-bio-garden-lagre"},
-    icon = ICONPATH_E .. "bio_garden_large_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "bio_garden_large_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "bio_garden_large_icon.png", icon_size = 64, } },
     enabled = false,
     energy_required = 15,
     ingredients = {
@@ -76,14 +62,7 @@ data:extend({
     name = "bi-bio-garden-huge",
     localised_name = {"entity-name.bi-bio-garden-huge"},
     localised_description = {"entity-description.bi-bio-garden-huge"},
-    icon = ICONPATH_E .. "bio_garden_huge_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH_E .. "bio_garden_huge_icon.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH_E .. "bio_garden_huge_icon.png", icon_size = 64, } },
     enabled = false,
     energy_required = 15,
     ingredients = {
@@ -106,14 +85,7 @@ data:extend({
   {
     type = "recipe",
     name = "bi-purified-air-1",
-            icon = ICONPATH .. "clean-air_mk1.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "clean-air_mk1.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "clean-air_mk1.png", icon_size = 64, } },
     order = "zzz-clean-air",
     category = "clean-air",
     subgroup = "bio-bio-gardens-fluid",
@@ -137,14 +109,7 @@ data:extend({
   {
     type = "recipe",
     name = "bi-purified-air-2",
-            icon = ICONPATH .. "clean-air_mk2.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "clean-air_mk2.png",
-        icon_size = 64,
-      }
-    },
+	icons = { {icon = ICONPATH .. "clean-air_mk2.png", icon_size = 64, } },
     order = "zzz-clean-air2",
     category = "clean-air",
     subgroup = "bio-bio-gardens-fluid",
